@@ -304,6 +304,22 @@
 
   /* ===== Mobile sticky call bar ===== */
   .call-bar { display: none; }
+  @media (max-width: 900px) {
+    .problems, .how, .about, .areas, .contact { padding: 84px 0; }
+    .stat { padding: 28px 12px; }
+    h2 { font-size: clamp(30px, 8.6vw, 40px); }
+    .timeline { margin-top: 44px; }
+    .step { padding-left: 70px; }
+    .areas .chips { margin-top: 30px; }
+    .chapter h1, .chapter h2 { font-size: clamp(40px, 12vw, 56px); }
+    .svc-stage { padding: 84px 0; }
+    body { padding-bottom: 0; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    .lead { font-size: 15px; }
+    form.lead-form { padding: 22px; border-radius: 22px; }
+  }
 
   /* ===== Mobile intro: full-bleed film ===== */
   @media (max-width: 900px) {
@@ -384,6 +400,7 @@
         <video id="introVideo" class="intro-video" muted playsinline preload="auto"
                poster="img/hero-poster.jpg"
                aria-label="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road">
+          <source src="media/hero-mobile.mp4" type="video/mp4" media="(max-width: 900px)">
           <source src="media/hero.mp4" type="video/mp4">
         </video>
       </div>
