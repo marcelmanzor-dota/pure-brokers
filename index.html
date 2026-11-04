@@ -113,37 +113,87 @@
     .hero-photo { aspect-ratio: 4 / 4.2; max-width: 520px; width: 100%; margin: 0 auto; }
   }
 
-  /* Scroll-driven hero: the page stays pinned while the car video plays forward with scroll */
-  .scroll-hero { height: 260vh; height: 260svh; padding: 0; overflow: clip; }
-  .scroll-stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; overflow: hidden; }
-  .scroll-stage .hero-grid { width: 100%; }
-  .scroll-cue {
-    position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 3;
-    font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
-    display: flex; flex-direction: column; align-items: center; gap: 8px; transition: opacity .3s;
+  /* ===== Cinematic scroll hero ===== */
+  .cine { position: relative; height: 300vh; height: 300svh; padding: 0; margin-top: -73px; background: var(--bg); }
+  .cine-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--bg); }
+  .cine-glow {
+    position: absolute; right: -8vw; top: 50%; transform: translateY(-50%);
+    width: 62vh; height: 62vh; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(63,191,107,.28), transparent 70%);
+    filter: blur(20px); pointer-events: none;
   }
-  .scroll-cue::after {
-    content: ""; width: 1px; height: 36px; background: linear-gradient(var(--green), transparent);
-    animation: cue 1.8s ease-in-out infinite; transform-origin: top;
+  .cine-media { position: absolute; top: 72px; right: 0; bottom: 0; left: 0; display: flex; justify-content: flex-end; align-items: center; padding-right: 7vw; pointer-events: none; }
+  .cine-video {
+    height: 88svh; width: auto; max-width: 62vw; aspect-ratio: 784 / 1172; object-fit: cover; display: block;
+    border-radius: 28px; background: #0b0d0c;
+    box-shadow: 0 60px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.06);
   }
-  @keyframes cue { 0%,100% { transform: scaleY(.3); opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
+  .cine-shade {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg, var(--bg) 0%, rgba(8,9,10,.92) 30%, rgba(8,9,10,.2) 62%, rgba(8,9,10,.2) 100%),
+      linear-gradient(0deg, rgba(8,9,10,.6), transparent 30%);
+  }
+  .cine-copy {
+    position: relative; z-index: 2; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; gap: 28px;
+    padding-top: 72px;
+  }
+  .cine-eyebrow { font-size: 11px; }
+  .chapters { position: relative; min-height: 440px; max-width: 580px; }
+  .chapter {
+    position: absolute; left: 0; top: 0; width: 100%;
+    opacity: 0; transform: translateY(28px); filter: blur(6px);
+    transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1), filter .7s;
+    pointer-events: none;
+  }
+  .chapter.is-active { opacity: 1; transform: none; filter: none; }
+  .chapter.is-past { opacity: 0; transform: translateY(-28px); filter: blur(6px); }
+  .chapter h1, .chapter h2 {
+    font-size: clamp(48px, 6.6vw, 98px); font-weight: 900; line-height: .98; letter-spacing: -.035em;
+  }
+  .chapter h1 { font-size: clamp(54px, 7.4vw, 112px); }
+  .chapter em { font-style: normal; color: var(--green); }
+  .chapter p { margin-top: 22px; color: var(--muted); font-size: clamp(16px, 1.5vw, 19px); max-width: 44ch; }
+  .cine-ctas { display: flex; flex-wrap: wrap; gap: 12px; opacity: 0; transform: translateY(14px); transition: opacity .6s .15s, transform .6s .15s; }
+  .cine-ctas.is-on { opacity: 1; transform: none; }
+  .cine-progress { position: absolute; left: 50%; transform: translateX(-50%); bottom: 26px; z-index: 3; display: flex; gap: 8px; }
+  .cine-progress .bar { width: 34px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.18); transition: background .4s, width .4s; }
+  .cine-progress .bar.is-on { background: var(--green); width: 56px; }
+  .cine-cue {
+    position: absolute; right: 7vw; bottom: 26px; z-index: 3; font-size: 11px; font-weight: 700;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--muted); transition: opacity .4s;
+  }
+  .cine-cue::after { content: ""; display: block; width: 1px; height: 30px; margin: 8px auto 0; background: linear-gradient(var(--green), transparent); }
+  .cine.is-moving .cine-cue { opacity: 0; }
+
+  /* Mobile: full-bleed video behind the copy */
   @media (max-width: 900px) {
-    .scroll-stage { align-items: flex-start; padding: 84px 0 96px; }
-    .scroll-stage .hero-grid { gap: 20px; }
-    .scroll-stage .hero-photo { height: 26svh; min-height: 180px; aspect-ratio: auto; max-width: none; border-radius: 22px; }
-    .scroll-stage .hero-badge { display: none; }
-    .scroll-stage .hero h1 { font-size: clamp(34px, 10.5vw, 48px); margin-top: 12px; }
-    .scroll-stage .hero .eyebrow { font-size: 11px; }
-    .scroll-stage .hero .lead, .scroll-stage .hero-meta { display: none; }
-    .scroll-stage .hero-ctas { margin-top: 22px; gap: 10px; }
-    .scroll-stage .hero-ctas .btn { flex: 1 1 auto; padding: 14px 18px; min-height: 50px; font-size: 14px; }
-    .scroll-stage .hero-ctas .btn-primary { flex: 1.4 1 auto; }
-    .scroll-cue { display: none; }
+    .cine-media { padding: 0; top: 0; display: block; }
+    .cine-video { position: absolute; inset: 0; height: 100%; width: 100%; max-width: none; aspect-ratio: auto; border-radius: 0; box-shadow: none; object-position: 50% 45%; }
+    .cine-shade {
+      background:
+        linear-gradient(0deg, var(--bg) 0%, rgba(8,9,10,.88) 38%, rgba(8,9,10,.25) 70%, rgba(8,9,10,.55) 100%);
+    }
+    .cine-glow { display: none; }
+    .cine-copy { justify-content: flex-end; padding-bottom: 96px; gap: 22px; }
+    .chapters { min-height: 290px; }
+    .chapter h1 { font-size: clamp(40px, 12vw, 56px); }
+    .chapter h2 { font-size: clamp(36px, 10.5vw, 50px); }
+    .chapter p { font-size: 15px; margin-top: 14px; }
+    .cine-cue { display: none; }
+    .cine-progress { bottom: 84px; }
+    .cine-ctas .btn { flex: 1 1 auto; min-height: 50px; padding: 14px 18px; font-size: 14px; }
   }
+
+  /* Reduced motion: static stack, no pinning, poster image */
   @media (prefers-reduced-motion: reduce) {
-    .scroll-hero { height: auto; }
-    .scroll-stage { position: relative; height: auto; padding: 56px 0 72px; }
-    .scroll-cue { display: none; }
+    .cine { height: auto; }
+    .cine-stage { position: relative; height: auto; min-height: 92vh; }
+    .chapter { position: relative; opacity: 1; transform: none; filter: none; margin-bottom: 26px; }
+    .chapters { min-height: 0; }
+    .cine-ctas { opacity: 1; transform: none; }
+    .cine-progress, .cine-cue { display: none; }
   }
 
   /* Stat strip */
@@ -312,43 +362,53 @@
 
 <main id="top">
 
-  <!-- HERO -->
-  <div class="hero scroll-hero" id="scrollHero">
-   <div class="scroll-stage">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Boca Raton · Serving all of Florida</span>
-        <h1>Your dream car. <em>Best</em> insurance rate. One place.</h1>
-        <p class="lead">Hassle and headache free. We shop our nationwide dealer network for the car, the lease or finance deal, and the insurance, so you get the whole thing done without the pressure.</p>
-        <div class="hero-ctas">
+  <!-- HERO: scroll-driven cinematic sequence -->
+  <section class="cine" id="cine" aria-label="Pure Brokers introduction">
+    <div class="cine-stage">
+      <div class="cine-glow" aria-hidden="true"></div>
+
+      <div class="cine-media">
+        <video id="cineVideo" class="cine-video" muted playsinline preload="auto"
+               poster="img/hero-poster.jpg"
+               aria-label="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road">
+          <source src="media/hero.mp4" type="video/mp4">
+        </video>
+        <div class="cine-shade" aria-hidden="true"></div>
+      </div>
+
+      <div class="wrap cine-copy">
+        <span class="eyebrow cine-eyebrow">Boca Raton · Serving all of Florida</span>
+
+        <div class="chapters">
+          <div class="chapter is-active" data-chapter="0">
+            <h1>Your dream car.</h1>
+            <p>Hassle and headache free. We find the car, the deal, and the insurance, all in one place.</p>
+          </div>
+          <div class="chapter" data-chapter="1">
+            <h2><em>Best</em> insurance rate.</h2>
+            <p>We shop 500+ dealers and the insurance market, so your monthly budget stays intact.</p>
+          </div>
+          <div class="chapter" data-chapter="2">
+            <h2>One place. <em>Zero</em> pressure.</h2>
+            <p>Lease, finance, insurance, delivery, and repairs, handled by one team from one call.</p>
+          </div>
+        </div>
+
+        <div class="cine-ctas">
           <a class="btn btn-primary" href="tel:+15615670239">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             Call (561) 567-0239
           </a>
-          <a class="btn btn-ghost" href="sms:+15615670239">Text us now</a>
-        </div>
-        <div class="hero-meta">
-          <span>Best prices &amp; financing</span>
-          <span>Same-day home delivery</span>
-          <span>Available 24/7</span>
+          <a class="btn btn-ghost" href="#contact">Free consultation</a>
         </div>
       </div>
-      <div class="hero-photo">
-        <video class="hero-video" id="heroVideo" muted playsinline preload="auto"
-               poster="img/hero-poster.jpg"
-               aria-label="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road">
-          <source src="media/hero.mp4" type="video/mp4">
-          <img src="img/hero.jpg" alt="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road" width="534" height="800">
-        </video>
-        <div class="hero-badge">
-          <div><span class="dot" style="display:inline-block;margin-right:8px;vertical-align:middle"></span><strong>Free consultation</strong>Tell us what you need, we handle the rest</div>
-          <a class="btn btn-primary" style="min-height:44px;padding:10px 18px;font-size:13px" href="#contact">Start</a>
-        </div>
+
+      <div class="cine-progress" aria-hidden="true">
+        <span class="bar is-on"></span><span class="bar"></span><span class="bar"></span>
       </div>
+      <div class="cine-cue" aria-hidden="true">Scroll</div>
     </div>
-    <div class="scroll-cue" aria-hidden="true">Scroll</div>
-   </div>
-  </div>
+  </section>
 
   <!-- STATS -->
   <div class="stats">
@@ -561,32 +621,53 @@
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 
-  // Scroll-driven hero video: scrub the clip with scroll position
-  const heroVideo = document.getElementById("heroVideo");
-  const scrollHero = document.getElementById("scrollHero");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (heroVideo && scrollHero && !reduceMotion) {
-    heroVideo.pause();
-    let target = 0, ticking = false;
+  // Cinematic scroll hero: scrubs the clip and swaps chapters with scroll progress
+  const cine = document.getElementById("cine");
+  const cineVideo = document.getElementById("cineVideo");
+  if (cine && cineVideo && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const chapters = [...cine.querySelectorAll(".chapter")];
+    const bars = [...cine.querySelectorAll(".cine-progress .bar")];
+    const ctas = cine.querySelector(".cine-ctas");
     const clamp01 = (n) => Math.min(1, Math.max(0, n));
-    const readProgress = () => {
-      const rect = scrollHero.getBoundingClientRect();
-      const range = scrollHero.offsetHeight - window.innerHeight;
-      target = range > 0 ? clamp01(-rect.top / range) : 0;
-      if (!ticking) { ticking = true; requestAnimationFrame(applyFrame); }
+    let target = 0, active = -1, frame = false;
+
+    cineVideo.pause();
+
+    const measure = () => {
+      const range = cine.offsetHeight - window.innerHeight;
+      target = range > 0 ? clamp01(-cine.getBoundingClientRect().top / range) : 0;
+      cine.classList.toggle("is-moving", target > 0.01);
+      if (!frame) { frame = true; requestAnimationFrame(render); }
     };
-    const applyFrame = () => {
-      ticking = false;
-      if (heroVideo.readyState >= 1 && isFinite(heroVideo.duration) && !heroVideo.seeking) {
-        const t = target * heroVideo.duration;
-        if (Math.abs(heroVideo.currentTime - t) > 0.016) heroVideo.currentTime = t;
+
+    const render = () => {
+      frame = false;
+      // Chapter by progress: 0–0.34, 0.34–0.67, 0.67–1
+      const idx = Math.min(2, Math.floor(target * 3));
+      if (idx !== active) {
+        active = idx;
+        chapters.forEach((c, i) => {
+          c.classList.toggle("is-active", i === idx);
+          c.classList.toggle("is-past", i < idx);
+        });
+        bars.forEach((b, i) => b.classList.toggle("is-on", i === idx));
+      }
+      ctas.classList.toggle("is-on", target > 0.9);
+
+      // Scrub video frame (only seek when the frame actually changes)
+      if (cineVideo.readyState >= 1 && isFinite(cineVideo.duration)) {
+        const t = target * cineVideo.duration;
+        if (!cineVideo.seeking && Math.abs(cineVideo.currentTime - t) > 0.03) cineVideo.currentTime = t;
       }
     };
-    heroVideo.addEventListener("seeked", () => { if (Math.abs(heroVideo.currentTime - target * heroVideo.duration) > 0.05) applyFrame(); });
-    heroVideo.addEventListener("loadeddata", readProgress);
-    window.addEventListener("scroll", readProgress, { passive: true });
-    window.addEventListener("resize", readProgress);
-    readProgress();
+
+    cineVideo.addEventListener("seeked", () => {
+      if (Math.abs(cineVideo.currentTime - target * cineVideo.duration) > 0.05) { frame = true; requestAnimationFrame(render); }
+    });
+    cineVideo.addEventListener("loadeddata", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
+    measure();
   }
 
   // Scroll reveal
