@@ -96,8 +96,8 @@
   .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; font-size: 13px; color: var(--muted); }
   .hero-meta span::before { content: "✓ "; color: var(--green); font-weight: 800; }
   .hero-photo { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: 0 40px 80px -30px rgba(0,0,0,.8); }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transform: scale(1.02); transition: transform 1.2s ease; }
-  .hero-photo:hover img { transform: scale(1.06); }
+  .hero-photo img, .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; }
+  .hero-video { background: #0b0d0c; }
   .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(8,9,10,.85)); }
   .hero-badge {
     position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2;
@@ -300,7 +300,12 @@
         </div>
       </div>
       <div class="hero-photo reveal">
-        <img src="img/hero.jpg" alt="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road" width="534" height="800">
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+               poster="img/hero-poster.jpg"
+               aria-label="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road">
+          <source src="media/hero.mp4" type="video/mp4">
+          <img src="img/hero.jpg" alt="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road" width="534" height="800">
+        </video>
         <div class="hero-badge">
           <div><span class="dot" style="display:inline-block;margin-right:8px;vertical-align:middle"></span><strong>Free consultation</strong>Tell us what you need, we handle the rest</div>
           <a class="btn btn-primary" style="min-height:44px;padding:10px 18px;font-size:13px" href="#contact">Start</a>
@@ -519,6 +524,13 @@
   const FORM_ENDPOINT = "";
 
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Hero video: respect reduced-motion preference (shows the poster frame instead)
+  const heroVideo = document.getElementById("heroVideo");
+  if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVideo.pause();
+    heroVideo.removeAttribute("autoplay");
+  }
 
   // Scroll reveal
   const io = new IntersectionObserver((entries) => {
