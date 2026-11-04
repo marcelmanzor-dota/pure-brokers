@@ -113,6 +113,39 @@
     .hero-photo { aspect-ratio: 4 / 4.2; max-width: 520px; width: 100%; margin: 0 auto; }
   }
 
+  /* Scroll-driven hero: the page stays pinned while the car video plays forward with scroll */
+  .scroll-hero { height: 260vh; height: 260svh; padding: 0; overflow: clip; }
+  .scroll-stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; overflow: hidden; }
+  .scroll-stage .hero-grid { width: 100%; }
+  .scroll-cue {
+    position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 3;
+    font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+    display: flex; flex-direction: column; align-items: center; gap: 8px; transition: opacity .3s;
+  }
+  .scroll-cue::after {
+    content: ""; width: 1px; height: 36px; background: linear-gradient(var(--green), transparent);
+    animation: cue 1.8s ease-in-out infinite; transform-origin: top;
+  }
+  @keyframes cue { 0%,100% { transform: scaleY(.3); opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
+  @media (max-width: 900px) {
+    .scroll-stage { align-items: flex-start; padding: 84px 0 96px; }
+    .scroll-stage .hero-grid { gap: 20px; }
+    .scroll-stage .hero-photo { height: 26svh; min-height: 180px; aspect-ratio: auto; max-width: none; border-radius: 22px; }
+    .scroll-stage .hero-badge { display: none; }
+    .scroll-stage .hero h1 { font-size: clamp(34px, 10.5vw, 48px); margin-top: 12px; }
+    .scroll-stage .hero .eyebrow { font-size: 11px; }
+    .scroll-stage .hero .lead, .scroll-stage .hero-meta { display: none; }
+    .scroll-stage .hero-ctas { margin-top: 22px; gap: 10px; }
+    .scroll-stage .hero-ctas .btn { flex: 1 1 auto; padding: 14px 18px; min-height: 50px; font-size: 14px; }
+    .scroll-stage .hero-ctas .btn-primary { flex: 1.4 1 auto; }
+    .scroll-cue { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-hero { height: auto; }
+    .scroll-stage { position: relative; height: auto; padding: 56px 0 72px; }
+    .scroll-cue { display: none; }
+  }
+
   /* Stat strip */
   .stats { border-block: 1px solid var(--line); background: var(--bg-2); }
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -280,7 +313,8 @@
 <main id="top">
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero scroll-hero" id="scrollHero">
+   <div class="scroll-stage">
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">Boca Raton · Serving all of Florida</span>
@@ -299,8 +333,8 @@
           <span>Available 24/7</span>
         </div>
       </div>
-      <div class="hero-photo reveal">
-        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+      <div class="hero-photo">
+        <video class="hero-video" id="heroVideo" muted playsinline preload="auto"
                poster="img/hero-poster.jpg"
                aria-label="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road">
           <source src="media/hero.mp4" type="video/mp4">
@@ -312,6 +346,8 @@
         </div>
       </div>
     </div>
+    <div class="scroll-cue" aria-hidden="true">Scroll</div>
+   </div>
   </div>
 
   <!-- STATS -->
@@ -525,11 +561,32 @@
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 
-  // Hero video: respect reduced-motion preference (shows the poster frame instead)
+  // Scroll-driven hero video: scrub the clip with scroll position
   const heroVideo = document.getElementById("heroVideo");
-  if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const scrollHero = document.getElementById("scrollHero");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (heroVideo && scrollHero && !reduceMotion) {
     heroVideo.pause();
-    heroVideo.removeAttribute("autoplay");
+    let target = 0, ticking = false;
+    const clamp01 = (n) => Math.min(1, Math.max(0, n));
+    const readProgress = () => {
+      const rect = scrollHero.getBoundingClientRect();
+      const range = scrollHero.offsetHeight - window.innerHeight;
+      target = range > 0 ? clamp01(-rect.top / range) : 0;
+      if (!ticking) { ticking = true; requestAnimationFrame(applyFrame); }
+    };
+    const applyFrame = () => {
+      ticking = false;
+      if (heroVideo.readyState >= 1 && isFinite(heroVideo.duration) && !heroVideo.seeking) {
+        const t = target * heroVideo.duration;
+        if (Math.abs(heroVideo.currentTime - t) > 0.016) heroVideo.currentTime = t;
+      }
+    };
+    heroVideo.addEventListener("seeked", () => { if (Math.abs(heroVideo.currentTime - target * heroVideo.duration) > 0.05) applyFrame(); });
+    heroVideo.addEventListener("loadeddata", readProgress);
+    window.addEventListener("scroll", readProgress, { passive: true });
+    window.addEventListener("resize", readProgress);
+    readProgress();
   }
 
   // Scroll reveal
