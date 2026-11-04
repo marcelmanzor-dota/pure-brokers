@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pure Brokers | Dream Car + Best Insurance Rates | Boca Raton, FL</title>
+<meta name="description" content="Pure Brokers gets you the right car, the best lease or finance deal, and the lowest insurance rate in one place. Headquartered in Boca Raton, serving all of Florida and nationwide.">
+<meta property="og:title" content="Pure Brokers | Dream Car + Best Insurance Rates">
+<meta property="og:description" content="Your dream car and best insurance rates, all in one place. Hassle and headache free.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="theme-color" content="#08090a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #08090a;
+    --bg-2: #0e1110;
+    --surface: #141816;
+    --line: rgba(255,255,255,.08);
+    --ink: #f3f6f4;
+    --muted: #9ba59e;
+    --green: #3fbf6b;
+    --green-deep: #2e7a44;
+    --green-glow: rgba(63,191,107,.35);
+    --radius: 18px;
+    --max: 1180px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) { /* the site is dark by design; light mode keeps the same look */ }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--green);
+  }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--green); border-radius: 2px; }
+  h1, h2, h3 { font-weight: 800; line-height: 1.08; letter-spacing: -.02em; }
+  h2 { font-size: clamp(30px, 4.6vw, 52px); margin-top: 14px; }
+  .lead { color: var(--muted); font-size: clamp(16px, 1.6vw, 18px); max-width: 60ch; margin-top: 16px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 26px; border-radius: 999px; font-weight: 700; font-size: 15px;
+    border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+    font-family: inherit; min-height: 52px;
+  }
+  .btn-primary { background: var(--green); color: #03120a; box-shadow: 0 10px 30px -10px var(--green-glow); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -10px var(--green-glow); }
+  .btn-ghost { border-color: rgba(255,255,255,.22); color: var(--ink); background: rgba(255,255,255,.03); }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+
+  /* Header */
+  header.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
+    background: rgba(8,9,10,.7);
+    border-bottom: 1px solid var(--line);
+  }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .04em; font-size: 17px; }
+  .brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; border-radius: 10px; padding: 4px; }
+  .nav { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 600; color: var(--muted); }
+  .nav a:hover { color: var(--ink); }
+  .nav .btn { padding: 11px 20px; min-height: 0; font-size: 14px; }
+  @media (max-width: 820px) { .nav a.hide-sm { display: none; } }
+  @media (max-width: 480px) { .nav .btn-primary { display: none; } }
+
+  /* Hero */
+  .hero { position: relative; padding: 56px 0 72px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto auto; width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
+    background: radial-gradient(closest-side, rgba(63,191,107,.22), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; gap: 40px; align-items: center; grid-template-columns: 1.1fr .9fr; }
+  .hero h1 { font-size: clamp(42px, 7vw, 84px); margin-top: 18px; }
+  .hero h1 em { font-style: normal; color: var(--green); }
+  .hero .lead { font-size: clamp(16px, 1.8vw, 19px); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; font-size: 13px; color: var(--muted); }
+  .hero-meta span::before { content: "✓ "; color: var(--green); font-weight: 800; }
+  .hero-photo { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: 0 40px 80px -30px rgba(0,0,0,.8); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transform: scale(1.02); transition: transform 1.2s ease; }
+  .hero-photo:hover img { transform: scale(1.06); }
+  .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(8,9,10,.85)); }
+  .hero-badge {
+    position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: rgba(14,17,16,.75); border: 1px solid var(--line); backdrop-filter: blur(10px);
+    border-radius: 16px; padding: 14px 16px; font-size: 13px;
+  }
+  .hero-badge strong { display: block; font-size: 15px; }
+  .hero-badge .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 var(--green-glow); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 var(--green-glow);} 70% { box-shadow: 0 0 0 12px rgba(63,191,107,0);} 100% { box-shadow: 0 0 0 0 rgba(63,191,107,0);} }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo { aspect-ratio: 4 / 4.2; max-width: 520px; width: 100%; margin: 0 auto; }
+  }
+
+  /* Stat strip */
+  .stats { border-block: 1px solid var(--line); background: var(--bg-2); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 30px 16px; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat b { display: block; font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: var(--ink); letter-spacing: -.02em; }
+  .stat b i { font-style: normal; color: var(--green); }
+  .stat small { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; }
+  @media (max-width: 720px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  }
+
+  section { padding: 110px 0; position: relative; }
+  .center { text-align: center; }
+  .center .lead { margin-left: auto; margin-right: auto; }
+
+  /* Pain points */
+  .pains { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 48px; }
+  .pain {
+    display: flex; gap: 14px; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; font-weight: 600; font-size: 15px;
+    transition: border-color .25s, transform .25s;
+  }
+  .pain:hover { border-color: rgba(63,191,107,.5); transform: translateY(-2px); }
+  .pain i { flex: none; width: 34px; height: 34px; border-radius: 10px; background: rgba(63,191,107,.12); color: var(--green); display: grid; place-items: center; font-style: normal; font-weight: 800; }
+  .pains-cta { margin-top: 44px; text-align: center; font-size: 18px; font-weight: 700; }
+  .pains-cta span { color: var(--green); }
+  @media (max-width: 640px) { .pains { grid-template-columns: 1fr; } }
+
+  /* About */
+  .about { background: var(--bg-2); }
+  .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+  .about-photo { border-radius: 24px; overflow: hidden; aspect-ratio: 4/3; position: relative; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(63,191,107,.18), transparent 50%); }
+  .about p { color: var(--muted); margin-top: 18px; }
+  .about p strong { color: var(--ink); }
+  .principles { list-style: none; margin-top: 28px; display: grid; gap: 14px; }
+  .principles li { display: flex; gap: 14px; align-items: flex-start; }
+  .principles li::before { content: ""; flex: none; margin-top: 6px; width: 10px; height: 10px; border-radius: 3px; background: var(--green); }
+  .principles b { display: block; font-size: 16px; }
+  .principles span { color: var(--muted); font-size: 15px; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 56px; }
+  .svc {
+    position: relative; overflow: hidden; border-radius: var(--radius);
+    background: linear-gradient(160deg, var(--surface), #0b0d0c);
+    border: 1px solid var(--line); padding: 36px; min-height: 260px;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+    transition: transform .3s, border-color .3s;
+  }
+  .svc:hover { transform: translateY(-4px); border-color: rgba(63,191,107,.45); }
+  .svc::after {
+    content: ""; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(63,191,107,.18), transparent); pointer-events: none;
+  }
+  .svc .n { font-size: 13px; font-weight: 800; color: var(--green); letter-spacing: .14em; }
+  .svc h3 { font-size: 28px; margin-top: 10px; }
+  .svc p { color: var(--muted); margin-top: 12px; font-size: 15.5px; max-width: 46ch; }
+  .svc .tag { align-self: flex-start; font-size: 12px; font-weight: 700; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; }
+  @media (max-width: 760px) { .services { grid-template-columns: 1fr; } .svc { padding: 28px; min-height: 0; } }
+
+  /* How it works */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; counter-reset: s; }
+  .step { padding: 30px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-2); }
+  .step::before { counter-increment: s; content: "0" counter(s); display: block; font-size: 46px; font-weight: 900; color: rgba(63,191,107,.9); line-height: 1; margin-bottom: 18px; }
+  .step h3 { font-size: 20px; }
+  .step p { color: var(--muted); margin-top: 10px; font-size: 15px; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+
+  /* Areas */
+  .areas { background: var(--bg-2); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 40px; }
+  .chip { padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; font-size: 14px; }
+  .chip::before { content: "📍 "; }
+  .addr { margin-top: 36px; text-align: center; color: var(--muted); font-size: 15px; }
+  .addr strong { color: var(--ink); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+  .contact-info h2 { margin-bottom: 4px; }
+  .big-phone {
+    display: block; margin-top: 28px; font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: var(--green);
+    letter-spacing: -.01em;
+  }
+  .contact-info .sub { color: var(--muted); margin-top: 6px; }
+  .hours { margin-top: 28px; display: grid; gap: 10px; color: var(--muted); font-size: 15px; }
+  .hours b { color: var(--ink); }
+  form.lead-form {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 34px;
+    display: grid; gap: 16px;
+  }
+  .field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--muted); }
+  .field label em { color: var(--green); font-style: normal; }
+  .field input, .field select, .field textarea {
+    width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .field textarea { min-height: 120px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(63,191,107,.15); }
+  .field select option { background: var(--bg); }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-note { font-size: 13px; color: var(--muted); }
+  .form-status { font-size: 15px; font-weight: 600; min-height: 1.4em; }
+  .form-status.ok { color: var(--green); }
+  .form-status.err { color: #ff8a8a; }
+  form.lead-form .btn { width: 100%; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } }
+  @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; } form.lead-form { padding: 24px; } }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 44px 0 110px; color: var(--muted); font-size: 14px; }
+  .foot { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; }
+  .foot .brand img { background: #fff; }
+  footer a:hover { color: var(--ink); }
+  .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+  /* Mobile sticky call bar */
+  .call-bar { display: none; }
+  @media (max-width: 720px) {
+    .call-bar {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+      padding: 10px; border-radius: 20px; background: rgba(14,17,16,.92); border: 1px solid var(--line);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px -10px rgba(0,0,0,.7);
+    }
+    .call-bar .btn { min-height: 50px; padding: 12px 16px; font-size: 14px; }
+    .call-bar .btn-ghost { background: var(--bg); }
+    section { padding: 84px 0; }
+  }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a href="#top" class="brand" aria-label="Pure Brokers home">
+      <img src="img/logo.png" alt="" width="40" height="40">
+      <span>PURE BROKERS</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="hide-sm" href="#services">Services</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#contact">Free Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Boca Raton · Serving all of Florida</span>
+        <h1>Your dream car. <em>Best</em> insurance rate. One place.</h1>
+        <p class="lead">Hassle and headache free. We shop our nationwide dealer network for the car, the lease or finance deal, and the insurance, so you get the whole thing done without the pressure.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+15615670239">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            Call (561) 567-0239
+          </a>
+          <a class="btn btn-ghost" href="sms:+15615670239">Text us now</a>
+        </div>
+        <div class="hero-meta">
+          <span>Best prices &amp; financing</span>
+          <span>Same-day home delivery</span>
+          <span>Available 24/7</span>
+        </div>
+      </div>
+      <div class="hero-photo reveal">
+        <img src="img/hero.jpg" alt="Yellow custom-wrapped Mercedes-AMG on a palm-lined Florida road" width="534" height="800">
+        <div class="hero-badge">
+          <div><span class="dot" style="display:inline-block;margin-right:8px;vertical-align:middle"></span><strong>Free consultation</strong>Tell us what you need, we handle the rest</div>
+          <a class="btn btn-primary" style="min-height:44px;padding:10px 18px;font-size:13px" href="#contact">Start</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat"><b>1,000<i>+</i></b><small>Locals served</small></div>
+      <div class="stat"><b>500<i>+</i></b><small>Dealers nationwide</small></div>
+      <div class="stat"><b>24<i>/</i>7</b><small>Available</small></div>
+      <div class="stat"><b>FL<i>·</i>US</b><small>Statewide &amp; nationwide</small></div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <section>
+    <div class="wrap center reveal">
+      <span class="eyebrow">Sound familiar?</span>
+      <h2>Car buying shouldn't feel like a fight.</h2>
+      <p class="lead">Most people tell us the same frustrations before they call. We built Pure Brokers around fixing them.</p>
+      <div class="pains">
+        <div class="pain"><i>1</i>I'm overwhelmed by endless options</div>
+        <div class="pain"><i>2</i>Insurance costs always surprise me</div>
+        <div class="pain"><i>3</i>Bad experiences with dealerships in the past</div>
+        <div class="pain"><i>4</i>Salespeople make me feel rushed</div>
+        <div class="pain"><i>5</i>Lease &amp; finance terms feel like a maze</div>
+        <div class="pain"><i>6</i>My credit isn't perfect</div>
+        <div class="pain"><i>7</i>I'm tired of wasting weekends</div>
+        <div class="pain"><i>8</i>Hidden fees keep popping up</div>
+        <div class="pain"><i>9</i>Insurance companies don't get my needs</div>
+        <div class="pain"><i>10</i>I feel unprepared to negotiate</div>
+      </div>
+      <p class="pains-cta">We handle all of it. <span>You just pick the car.</span></p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div class="about-photo reveal">
+        <img src="img/img3534.jpeg" alt="A Pure Brokers vehicle" loading="lazy">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">About Pure Brokers</span>
+        <h2>Built by people who've seen the other side.</h2>
+        <p>For over a decade, our founder worked in the trenches of the automotive industry: dealerships, finance offices, and insurance desks. He saw firsthand how buyers get squeezed by hidden fees, confusing terms, pressure tactics, and insurance quotes that feel like punishment.</p>
+        <p>Pure Brokers started as a simple idea: <strong>what if car buying was actually enjoyable?</strong> We don't have a fancy origin story. We have hard-earned relationships with 500+ dealers nationwide and a team that's obsessed with fairness.</p>
+        <ul class="principles">
+          <li><div><b>We work for you, not the dealers.</b><span>Our fee is transparent, and so is every offer we bring.</span></div></li>
+          <li><div><b>South Florida roots, nationwide reach.</b><span>Whether you're in Boca, Miami, or Nebraska, we have the contacts to find your match.</span></div></li>
+          <li><div><b>Insurance isn't an afterthought.</b><span>We tackle it upfront so your monthly budget stays intact.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="center reveal">
+        <span class="eyebrow">What we do</span>
+        <h2>Everything from the first test drive to the last claim.</h2>
+        <p class="lead">One team, one call. We bring the deal to you, the way you want it.</p>
+      </div>
+      <div class="services">
+        <article class="svc reveal">
+          <div>
+            <div class="n">01</div>
+            <h3>Best prices &amp; financing</h3>
+            <p>We tap our nationwide dealer network to secure unbeatable leases and financing. No fine print, just real deals.</p>
+          </div>
+          <span class="tag">Lease · Finance · Buy</span>
+        </article>
+        <article class="svc reveal">
+          <div>
+            <div class="n">02</div>
+            <h3>Home delivery</h3>
+            <p>Same-day delivery right into your driveway. Documents and vehicle delivered conveniently straight to your home.</p>
+          </div>
+          <span class="tag">Same-day available</span>
+        </article>
+        <article class="svc reveal">
+          <div>
+            <div class="n">03</div>
+            <h3>Insurance</h3>
+            <p>Custom, low-rate policies to go with your brand-new car. We shop for the best rate on auto, commercial, and homeowners.</p>
+          </div>
+          <span class="tag">Auto · Commercial · Home</span>
+        </article>
+        <article class="svc reveal">
+          <div>
+            <div class="n">04</div>
+            <h3>Repairs &amp; lease returns</h3>
+            <p>Repairs for leased and owned vehicles, plus tints, wraps, and servicing at your convenience. No need for an insurance claim.</p>
+          </div>
+          <span class="tag">Tints · Wraps · Service</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="center reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Three steps. No drama.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Tell us what you need</h3><p>Fill out the form or call or text. Tell us the car, the budget, and what's been frustrating you.</p></div>
+        <div class="step reveal"><h3>We do the legwork</h3><p>We shop our dealer network and insurance options and bring you clear, transparent offers.</p></div>
+        <div class="step reveal"><h3>Sign and drive</h3><p>Pick your deal. We can deliver the car and documents straight to your driveway.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="areas" class="areas">
+    <div class="wrap center reveal">
+      <span class="eyebrow">Areas we serve</span>
+      <h2>Proudly serving South Florida and beyond.</h2>
+      <div class="chips">
+        <span class="chip">Boca Raton</span>
+        <span class="chip">Miami Metro</span>
+        <span class="chip">Miami</span>
+        <span class="chip">Broward County</span>
+        <span class="chip">Miami-Dade County</span>
+        <span class="chip">Palm Beach County</span>
+        <span class="chip">Fort Lauderdale</span>
+        <span class="chip">Hollywood</span>
+        <span class="chip">Pompano Beach</span>
+        <span class="chip">West Palm Beach</span>
+      </div>
+      <p class="addr"><strong>Office:</strong> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Free consultation</span>
+        <h2>Let's make it happen.</h2>
+        <p class="lead">Thanks for stopping by. Fill out the form and the Pure Brokers team will take it from there. Tell us if you need help leasing, buying, repairing, insuring, or accessorizing your vehicle.</p>
+        <a class="big-phone" href="tel:+15615670239">(561) 567-0239</a>
+        <p class="sub">Call or text for new inquiries</p>
+        <div class="hours">
+          <div><b>Hours:</b> Available 24/7</div>
+          <div><b>Office:</b> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</div>
+        </div>
+      </div>
+
+      <form class="lead-form reveal" id="lead" novalidate>
+        <div class="row-2">
+          <div class="field">
+            <label for="name">Name <em>*</em></label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contact">Email or cell <em>*</em></label>
+            <input id="contact" name="contact" autocomplete="email" inputmode="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="brand">Brand <em>*</em></label>
+          <select id="brand" name="brand" required>
+            <option value="">Select one</option>
+            <option>Acura</option><option>Audi</option><option>BMW</option><option>Ferrari</option>
+            <option>Honda</option><option>Hyundai</option><option>Infiniti</option><option>Lamborghini</option>
+            <option>Land Rover</option><option>Lexus</option><option>Mazda</option><option>Mercedes-Benz</option>
+            <option>Mitsubishi</option><option>Nissan</option><option>Rolls-Royce</option><option>Saab</option>
+            <option>Subaru</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="details">Comments / details on your request <em>*</em></label>
+          <textarea id="details" name="details" placeholder="Leasing, buying, repairing, insuring, or accessorizing? Tell us what you're looking for." required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit request</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="form-note">Prefer to talk? Call or text (561) 567-0239.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand" style="color:var(--ink)">
+      <img src="img/logo.png" alt="" width="40" height="40">
+      <span>PURE BROKERS LLC</span>
+    </a>
+    <div>3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</div>
+    <div class="foot-links">
+      <a href="tel:+15615670239">(561) 567-0239</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:20px;font-size:12px">© <span id="yr">2026</span> Pure Brokers LLC. All rights reserved.</div>
+</footer>
+
+<div class="call-bar" aria-label="Quick contact">
+  <a class="btn btn-primary" href="tel:+15615670239">Call now</a>
+  <a class="btn btn-ghost" href="sms:+15615670239">Text us</a>
+</div>
+
+<script>
+  // Set to your form backend (e.g. a Formspree or Netlify Forms URL). Leave empty to show the phone fallback.
+  const FORM_ENDPOINT = "";
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // Lead form
+  const form = document.getElementById("lead");
+  const status = form.querySelector(".form-status");
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    status.className = "form-status";
+    const data = Object.fromEntries(new FormData(form).entries());
+    const missing = ["name", "contact", "brand", "details"].filter((k) => !String(data[k] || "").trim());
+    if (missing.length) {
+      status.classList.add("err");
+      status.textContent = "Please fill out the required fields.";
+      return;
+    }
+    if (!FORM_ENDPOINT) {
+      status.classList.add("err");
+      status.textContent = "Online form isn't connected yet. Please call or text (561) 567-0239.";
+      return;
+    }
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const res = await fetch(FORM_ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
+      if (!res.ok) throw new Error("bad response");
+      form.reset();
+      status.classList.add("ok");
+      status.textContent = "Thanks! The Pure Brokers team will reach out shortly.";
+    } catch (err) {
+      status.classList.add("err");
+      status.textContent = "Something went wrong. Please call or text (561) 567-0239.";
+    } finally {
+      btn.disabled = false; btn.textContent = "Submit request";
+    }
+  });
+</script>
+</body>
+</html>
