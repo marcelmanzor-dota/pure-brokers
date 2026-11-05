@@ -12,7 +12,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" as="image" href="assets/hero-2400.webp" media="(min-width: 901px)">
-<link rel="preload" as="image" href="assets/hero-1200.webp" media="(max-width: 900px)">
+<link rel="preload" as="image" href="assets/hero-phone.webp" media="(max-width: 900px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -126,7 +126,7 @@
   .menu-call { display: none; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 13px; }
 
   /* ================= Hero ================= */
-  .hero { position: relative; height: 100vh; height: 100svh; min-height: 620px; }
+  .hero { position: relative; min-height: 100vh; min-height: 100svh; }
   .hero-media {
     position: absolute; inset: 0; overflow: hidden; background: #050605;
     clip-path: inset(0 0 0 0 round 0px); will-change: clip-path, transform;
@@ -139,7 +139,7 @@
       linear-gradient(0deg, rgba(7,9,8,.75) 0%, rgba(7,9,8,0) 34%),
       linear-gradient(180deg, rgba(7,9,8,.55) 0%, rgba(7,9,8,0) 22%);
   }
-  .hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: clamp(36px, 6vh, 72px); }
+  .hero-content { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 112px; padding-bottom: clamp(36px, 6vh, 72px); }
   .hero .label { margin-bottom: 28px; }
   .hero h1 { max-width: 11ch; }
   .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
@@ -290,7 +290,9 @@
 
   /* ================= Contact ================= */
   .contact { position: relative; padding: clamp(100px, 12vw, 170px) 0; overflow: hidden; }
-  .contact-bg { position: absolute; inset: 0; z-index: 0; }
+  .contact-bg { position: absolute; inset: 0; z-index: 0; background: #070908 url("assets/night-poster.webp") center / cover no-repeat; }
+  .contact-bg video { opacity: 0; transition: opacity 1.2s ease; }
+  .contact-bg video.is-on { opacity: 1; }
   .contact-bg video, .contact-bg img { width: 100%; height: 100%; object-fit: cover; }
   .contact-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,9,8,.92) 0%, rgba(7,9,8,.78) 45%, rgba(7,9,8,.55) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 25%), linear-gradient(180deg, var(--bg) 0%, transparent 20%); }
   .contact .wrap { position: relative; z-index: 1; }
@@ -331,7 +333,12 @@
   .form-status { font-size: 14px; min-height: 1.3em; }
   .form-status.ok { color: var(--mint); }
   .form-status.err { color: #f2a7a0; }
-  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; padding-top: 60px; }
+    .contact { padding: 0 0 90px; overflow: clip; }
+    .contact-bg { position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; background-image: url("assets/night-phone.webp"); }
+    .contact-bg::after { background: linear-gradient(180deg, var(--bg) 0%, rgba(7,9,8,.82) 18%, rgba(7,9,8,.86) 100%); }
+  }
   @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; gap: 22px; } }
 
   /* ================= Footer ================= */
@@ -355,6 +362,7 @@
       transform: translateY(140%); transition: transform .6s var(--ease);
     }
     .callbar.is-on { transform: none; }
+    .callbar.is-on.is-away { transform: translateY(140%); }
     .callbar a { height: 48px; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 500; }
     .callbar .c1 { background: var(--ivory); color: #0b0e0c; }
     .callbar .c2 { border: 1px solid var(--line-2); }
@@ -365,7 +373,7 @@
   @media (max-width: 900px) {
     .header-inner { height: 70px; }
     .brand-logo { height: 48px; }
-    .hero-media video, .hero-media img { object-position: 74% 50%; }
+    .hero-media video, .hero-media img { object-position: 50% 50%; }
     .hero-media::after { background: linear-gradient(0deg, rgba(7,9,8,.95) 0%, rgba(7,9,8,.7) 42%, rgba(7,9,8,.15) 72%, rgba(7,9,8,.5) 100%); }
     .hero h1 { font-size: clamp(50px, 14vw, 74px); }
     .hero-sub { margin-top: 22px; gap: 24px; }
@@ -377,6 +385,12 @@
     .story-head, .areas-head { flex-direction: column; align-items: flex-start; }
   }
 
+  @media (max-width: 900px) {
+    .footer-top a { display: flex; align-items: center; min-height: 44px; margin-bottom: 0; }
+    .footer-top a.brand { min-height: 0; }
+    .areas-addr a, .form-note a { display: inline-flex; align-items: center; min-height: 44px; }
+    .hero-content { padding-top: 96px; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .marquee-track { animation: none; }
     .story-media figure, .story-media img, .btn::before, .btn .ico svg { transition: none; }
@@ -428,8 +442,12 @@
   <!-- 1. HERO -->
   <section class="hero" id="hero" aria-label="Introduction">
     <div class="hero-media" id="heroMedia">
-      <img src="assets/hero-2400.webp" srcset="assets/hero-1200.webp 1200w, assets/hero-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high">
-      <video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true" poster="assets/hero-2400.webp">
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/hero-phone.webp">
+        <img src="assets/hero-2400.webp" srcset="assets/hero-1200.webp 1200w, assets/hero-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high">
+      </picture>
+      <video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="assets/hero-phone.mp4" type="video/mp4" media="(max-width: 900px)">
         <source src="assets/hero-1080.mp4" type="video/mp4">
       </video>
     </div>
@@ -493,26 +511,26 @@
       </div>
       <div class="story-grid">
         <div class="story-media" id="storyMedia" aria-hidden="true">
-          <figure class="is-on"><img src="assets/step-1.webp" alt="" loading="lazy"></figure>
-          <figure><img src="assets/step-2.webp" alt="" loading="lazy"></figure>
-          <figure><img src="assets/step-3.webp" alt="" loading="lazy"></figure>
+          <figure class="is-on"><img src="assets/step-1.webp" srcset="assets/step-1.webp 1200w, assets/step-1-lg.webp 1792w" sizes="(max-width: 900px) 1px, 45vw" alt="" loading="lazy"></figure>
+          <figure><img src="assets/step-2.webp" srcset="assets/step-2.webp 1200w, assets/step-2-lg.webp 1792w" sizes="(max-width: 900px) 1px, 45vw" alt="" loading="lazy"></figure>
+          <figure><img src="assets/step-3.webp" srcset="assets/step-3.webp 1200w, assets/step-3-lg.webp 1792w" sizes="(max-width: 900px) 1px, 45vw" alt="" loading="lazy"></figure>
           <div class="counter" id="storyCounter">01 / 03</div>
         </div>
         <div class="story-steps">
           <article class="step" data-step="0">
-            <div class="step-img"><img src="assets/step-1-sm.webp" alt="A phone on a kitchen island, ready to call Pure Brokers" loading="lazy"></div>
+            <div class="step-img"><img src="assets/step-1-sm.webp" srcset="assets/step-1-sm.webp 720w, assets/step-1.webp 1200w, assets/step-1-lg.webp 1792w" sizes="(max-width: 900px) 92vw, 1px" alt="A phone on a kitchen island, ready to call Pure Brokers" loading="lazy"></div>
             <span class="num">01</span>
             <h3>Tell us what you need</h3>
             <p>Fill out the form, call or text. Tell us the car, the budget, and what's been frustrating you.</p>
           </article>
           <article class="step" data-step="1">
-            <div class="step-img"><img src="assets/step-2-sm.webp" alt="Lease, finance and insurance offers laid out on a desk" loading="lazy"></div>
+            <div class="step-img"><img src="assets/step-2-sm.webp" srcset="assets/step-2-sm.webp 720w, assets/step-2.webp 1200w, assets/step-2-lg.webp 1792w" sizes="(max-width: 900px) 92vw, 1px" alt="Lease, finance and insurance offers laid out on a desk" loading="lazy"></div>
             <span class="num">02</span>
             <h3>We do the legwork</h3>
             <p>We shop our 500+ dealer network and the insurance market, then bring you clear, transparent offers side by side.</p>
           </article>
           <article class="step" data-step="2">
-            <div class="step-img"><img src="assets/step-3-sm.webp" alt="A new car delivered to a Florida home driveway" loading="lazy"></div>
+            <div class="step-img"><img src="assets/step-3-sm.webp" srcset="assets/step-3-sm.webp 720w, assets/step-3.webp 1200w, assets/step-3-lg.webp 1792w" sizes="(max-width: 900px) 92vw, 1px" alt="A new car delivered to a Florida home driveway" loading="lazy"></div>
             <span class="num">03</span>
             <h3>Sign and drive</h3>
             <p>Pick your deal. We can deliver the car and the documents straight to your driveway, often the same day.</p>
@@ -531,28 +549,28 @@
       </div>
       <div class="svc-list" id="svcList">
         <div class="svc-row" data-img="0">
-          <div class="svc-img"><img src="assets/svc-finance.webp" alt="Signing a finance agreement" loading="lazy"></div>
+          <div class="svc-img"><img src="assets/svc-finance.webp" srcset="assets/svc-finance.webp 900w, assets/svc-finance-lg.webp 1400w" sizes="(max-width: 900px) 92vw, 176px" alt="Signing a finance agreement" loading="lazy"></div>
           <span class="n">01</span>
           <h3>Best prices &amp; financing</h3>
           <p>We tap our nationwide dealer network to secure unbeatable leases and financing. No fine print, just real deals.<span class="tag">Lease · Finance · Buy</span></p>
           <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
         <div class="svc-row" data-img="1">
-          <div class="svc-img"><img src="assets/svc-delivery.webp" alt="A car delivered to a home at night" loading="lazy"></div>
+          <div class="svc-img"><img src="assets/svc-delivery.webp" srcset="assets/svc-delivery.webp 900w, assets/svc-delivery-lg.webp 1400w" sizes="(max-width: 900px) 92vw, 176px" alt="A car delivered to a home at night" loading="lazy"></div>
           <span class="n">02</span>
           <h3>Home delivery</h3>
           <p>Same-day delivery right into your driveway. Documents and vehicle delivered conveniently straight to your home.<span class="tag">Same-day available</span></p>
           <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
         <div class="svc-row" data-img="2">
-          <div class="svc-img"><img src="assets/svc-insurance.webp" alt="Close-up of a car's headlight with water beading on the paint" loading="lazy"></div>
+          <div class="svc-img"><img src="assets/svc-insurance.webp" srcset="assets/svc-insurance.webp 900w, assets/svc-insurance-lg.webp 1400w" sizes="(max-width: 900px) 92vw, 176px" alt="Close-up of a car's headlight with water beading on the paint" loading="lazy"></div>
           <span class="n">03</span>
           <h3>Insurance</h3>
           <p>Custom, low-rate policies to go with your new car. We shop the best rate on auto, commercial and homeowners.<span class="tag">Auto · Commercial · Home</span></p>
           <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
         <div class="svc-row" data-img="3">
-          <div class="svc-img"><img src="assets/svc-repairs.webp" alt="Paint protection film being applied in a detailing studio" loading="lazy"></div>
+          <div class="svc-img"><img src="assets/svc-repairs.webp" srcset="assets/svc-repairs.webp 900w, assets/svc-repairs-lg.webp 1400w" sizes="(max-width: 900px) 92vw, 176px" alt="Paint protection film being applied in a detailing studio" loading="lazy"></div>
           <span class="n">04</span>
           <h3>Repairs &amp; lease returns</h3>
           <p>Repairs for leased and owned vehicles, plus tints, wraps and servicing at your convenience. No insurance claim needed.<span class="tag">Tints · Wraps · Service</span></p>
@@ -594,7 +612,7 @@
   <section class="about" id="about" aria-label="About Pure Brokers">
     <div class="wrap about-grid">
       <div class="about-photo" id="aboutPhoto">
-        <img src="assets/about.webp" alt="A car delivered by Pure Brokers" loading="lazy">
+        <img src="assets/about-1000.webp" srcset="assets/about-1000.webp 1000w, assets/about-1800.webp 1800w" sizes="(max-width: 900px) 130vw, 60vw" alt="A car delivered by Pure Brokers" loading="lazy">
         <span class="cap">Delivered by Pure Brokers</span>
       </div>
       <div class="about-copy">
@@ -640,8 +658,8 @@
   <!-- 9. CONTACT -->
   <section class="contact" id="contact" aria-label="Contact">
     <div class="contact-bg" aria-hidden="true">
-      <video id="contactVideo" muted loop playsinline preload="none" poster="assets/night-poster.webp">
-        <source src="assets/night-720.mp4" type="video/mp4" media="(max-width: 900px)">
+      <video id="contactVideo" muted loop playsinline preload="none">
+        <source src="assets/night-phone.mp4" type="video/mp4" media="(max-width: 900px)">
         <source src="assets/night-1080.mp4" type="video/mp4">
       </video>
     </div>
@@ -779,6 +797,7 @@
           else contactVideo.pause();
         });
       }, { rootMargin: "200px 0px" });
+      contactVideo.addEventListener("playing", function () { contactVideo.classList.add("is-on"); }, { once: true });
       cio.observe(contactVideo);
     }
   }
@@ -794,6 +813,10 @@
     lastY = y;
   }
   onScrollUI(window.scrollY);
+  // Keep the floating call bar from covering the form while someone is filling it in
+  if (callbar && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { callbar.classList.toggle("is-away", e.isIntersecting); }); }, { threshold: 0.05 }).observe($("#lead"));
+  }
 
   /* ---------- Form ---------- */
   var brand = $("#brand");
