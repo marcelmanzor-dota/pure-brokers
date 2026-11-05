@@ -7,8 +7,9 @@
 <meta name="description" content="Pure Brokers gets you the right car, the best lease or finance deal, and the lowest insurance rate in one place. Headquartered in Boca Raton, serving all of Florida and nationwide.">
 <meta property="og:title" content="Pure Brokers | Dream Car + Best Insurance Rates">
 <meta property="og:description" content="Your dream car and best insurance rates, all in one place. Hassle and headache free.">
-<meta property="og:image" content="img/hero-poster.jpg">
+<meta property="og:image" content="img/road-poster.jpg">
 <meta name="theme-color" content="#08090a">
+<link rel="preload" as="image" href="film/a_001.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -17,11 +18,12 @@
     --bg: #08090a;
     --bg-2: #0e1110;
     --surface: #141816;
-    --line: rgba(255,255,255,.08);
+    --line: rgba(255,255,255,.09);
     --ink: #f3f6f4;
-    --muted: #9ba59e;
+    --muted: #a6b0a9;
     --green: #3fbf6b;
     --green-glow: rgba(63,191,107,.35);
+    --glass: rgba(10,12,11,.72);
     --max: 1180px;
     --header: 73px;
   }
@@ -32,7 +34,7 @@
     background: var(--bg); color: var(--ink); line-height: 1.6;
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  img, video { max-width: 100%; display: block; }
+  img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
   section { position: relative; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
@@ -47,6 +49,38 @@
   .center { text-align: center; }
   .center .lead { margin-left: auto; margin-right: auto; }
 
+  /* ===== The film: fixed behind the whole page, driven by scroll ===== */
+  .film {
+    position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block;
+    background: #08090a url("img/road-poster.jpg") center 60% / cover no-repeat;
+  }
+  .film-shade {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 90% at 70% 50%, transparent 40%, rgba(8,9,10,.65) 100%),
+      linear-gradient(90deg, rgba(8,9,10,.88) 0%, rgba(8,9,10,.55) 38%, rgba(8,9,10,.18) 70%, rgba(8,9,10,.3) 100%);
+  }
+  .film-grain {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .film-progress {
+    position: fixed; left: 0; right: 0; top: var(--header); height: 2px; z-index: 49; pointer-events: none;
+    background: linear-gradient(90deg, var(--green), #bff5d0); transform-origin: left; transform: scaleX(0);
+    box-shadow: 0 0 12px var(--green-glow);
+  }
+  main, footer { position: relative; z-index: 1; }
+
+  /* Glass panels keep every section readable on top of the film */
+  .glass {
+    background: var(--glass); border: 1px solid var(--line); border-radius: 30px;
+    padding: clamp(26px, 4.4vw, 64px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 40px 90px -40px rgba(0,0,0,.85);
+  }
+  @media (min-width: 901px) {
+    .glass { backdrop-filter: blur(16px) saturate(130%); -webkit-backdrop-filter: blur(16px) saturate(130%); }
+  }
+
   /* ===== Buttons ===== */
   .btn {
     position: relative; overflow: hidden; isolation: isolate;
@@ -56,30 +90,22 @@
     transition: transform .25s, box-shadow .25s, filter .25s, color .25s, border-color .25s;
   }
   .btn svg { width: 18px; height: 18px; flex: none; }
-  .btn::after { /* light sweep across the metal */
+  .btn::after {
     content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1;
     background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent);
     transform: skewX(-18deg); transition: left .7s ease;
   }
   .btn:hover::after { left: 120%; }
   .btn:hover { transform: translateY(-2px); }
-
-  /* Brushed green chrome: primary actions */
   .btn-primary {
     color: #03150b; text-shadow: 0 1px 0 rgba(255,255,255,.45);
     background:
       repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 3px),
       linear-gradient(180deg, #e9fff1 0%, #8fe6ad 18%, #3fbf6b 46%, #2a8a4c 52%, #5fd98a 68%, #c9f8d9 86%, #46a86a 100%);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.85),
-      inset 0 -2px 3px rgba(0,40,15,.45),
-      0 0 0 1px rgba(0,0,0,.45),
-      0 14px 34px -12px rgba(63,191,107,.7);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -2px 3px rgba(0,40,15,.45), 0 0 0 1px rgba(0,0,0,.45), 0 14px 34px -12px rgba(63,191,107,.7);
   }
-  .btn-primary:hover { filter: brightness(1.06) saturate(1.05); box-shadow: inset 0 1px 0 rgba(255,255,255,.9), inset 0 -2px 3px rgba(0,40,15,.45), 0 0 0 1px rgba(0,0,0,.45), 0 20px 40px -12px rgba(63,191,107,.85); }
+  .btn-primary:hover { filter: brightness(1.06) saturate(1.05); }
   .btn-primary:active { transform: translateY(1px); }
-
-  /* Gunmetal steel: secondary actions */
   .btn-steel {
     color: var(--ink);
     background:
@@ -94,7 +120,7 @@
   header.top {
     position: sticky; top: 0; z-index: 50; height: var(--header);
     backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
-    background: rgba(8,9,10,.7); border-bottom: 1px solid var(--line);
+    background: rgba(8,9,10,.72); border-bottom: 1px solid var(--line);
   }
   .top-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .04em; font-size: 17px; }
@@ -105,67 +131,33 @@
   @media (max-width: 820px) { .nav a.hide-sm { display: none; } }
   @media (max-width: 480px) { .nav .btn-primary { display: none; } }
 
-  /* ===== 1. INTRO: pinned, scroll-scrubbed car film ===== */
-  .intro { height: 320vh; height: 320svh; margin-top: calc(-1 * var(--header)); background: var(--bg); }
-  .intro-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-  .intro-glow {
-    position: absolute; right: 8vw; top: 50%; transform: translateY(-50%);
-    width: 70vh; height: 70vh; border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(63,191,107,.26), transparent 70%); pointer-events: none;
-  }
-  .ghost-word {
-    position: absolute; left: 0; bottom: 6vh; white-space: nowrap; pointer-events: none;
-    font-size: clamp(120px, 22vw, 340px); font-weight: 900; line-height: .8; letter-spacing: -.04em;
-    color: transparent; -webkit-text-stroke: 1px rgba(63,191,107,.22);
-    will-change: transform;
-  }
-  .intro-video-wrap {
-    position: absolute; top: calc(var(--header) + 20px); right: 7vw;
-    height: calc(100svh - var(--header) - 40px); aspect-ratio: 9 / 16;
-    border-radius: 28px; overflow: hidden; background: #0b0d0c;
-    box-shadow: 0 60px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.07);
-  }
-  .intro-film {
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;
-    transition: opacity .6s ease;
-  }
-  .intro-film.is-on { opacity: 1; }
-  .intro-shade {
-    position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(90deg, var(--bg) 0%, rgba(8,9,10,.92) 30%, rgba(8,9,10,.15) 62%, rgba(8,9,10,.35) 100%);
-  }
-  .intro-copy {
-    position: relative; z-index: 2; height: 100%; padding-top: var(--header);
-    display: flex; flex-direction: column; justify-content: center; gap: 26px;
-  }
-  .chapters { position: relative; min-height: 430px; max-width: 580px; }
-  .chapter {
-    position: absolute; left: 0; top: 0; width: 100%; pointer-events: none;
-    opacity: 0; transform: translateY(28px); filter: blur(6px);
-    transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1), filter .7s;
-  }
-  .chapter.is-active { opacity: 1; transform: none; filter: none; }
-  .chapter.is-past { opacity: 0; transform: translateY(-28px); filter: blur(6px); }
-  .chapter h1, .chapter h2 { font-size: clamp(54px, 7.4vw, 112px); font-weight: 900; line-height: .96; letter-spacing: -.04em; }
+  /* ===== Opening chapters: full screens in normal flow, over the film ===== */
+  .chapter { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 100px 0; }
+  .chapter:first-of-type { min-height: calc(100svh - var(--header)); }
+  .chapter .wrap { width: 100%; }
+  .chapter-copy { max-width: 640px; text-shadow: 0 2px 30px rgba(0,0,0,.55); }
+  .chapter h1, .chapter h2 { font-size: clamp(54px, 7.6vw, 116px); font-weight: 900; line-height: .95; letter-spacing: -.045em; margin-top: 18px; }
   .chapter em { font-style: normal; color: var(--green); }
-  .chapter p { margin-top: 22px; color: var(--muted); font-size: clamp(16px, 1.5vw, 19px); max-width: 44ch; }
-  .intro-ctas { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; transform: translateY(14px); transition: opacity .6s .15s, transform .6s .15s; }
-  .intro-ctas.is-on { opacity: 1; transform: none; }
-  .intro-bars { position: absolute; left: 50%; transform: translateX(-50%); bottom: 26px; z-index: 3; display: flex; gap: 8px; }
-  .intro-bars .bar { width: 34px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.18); transition: background .4s, width .4s; }
-  .intro-bars .bar.is-on { background: var(--green); width: 56px; }
-  .intro-cue { position: absolute; left: 7vw; bottom: 26px; z-index: 3; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-  .intro-cue::after { content: ""; display: block; width: 1px; height: 30px; margin-top: 8px; background: linear-gradient(var(--green), transparent); }
+  .chapter p { margin-top: 24px; color: #d3dad5; font-size: clamp(16px, 1.5vw, 20px); max-width: 44ch; }
+  .chapter-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .scroll-cue { margin-top: 46px; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+  .scroll-cue::after { content: ""; display: block; width: 1px; height: 38px; margin-top: 10px; background: linear-gradient(var(--green), transparent); animation: cue 1.8s ease-in-out infinite; transform-origin: top; }
+  @keyframes cue { 0%,100% { transform: scaleY(.3); opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
 
-  /* ===== 2. Ribbon marquee (scroll-linked) ===== */
+  /* Chapter entrance: words rise in */
+  .rise { opacity: 0; transform: translateY(40px); filter: blur(8px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1), filter 1s; }
+  .rise.in { opacity: 1; transform: none; filter: none; }
+  .rise.d1 { transition-delay: .08s; } .rise.d2 { transition-delay: .18s; } .rise.d3 { transition-delay: .3s; }
+
+  /* ===== Ribbon ===== */
   .ribbon-wrap { overflow: hidden; padding: 40px 0; }
-  .ribbon { background: var(--green); color: #03150b; overflow: hidden; padding: 18px 0; transform: rotate(-1.2deg); position: relative; z-index: 2; }
-  .ribbon-track { display: flex; gap: 40px; white-space: nowrap; font-weight: 900; font-size: clamp(20px, 3vw, 34px); letter-spacing: -.01em; text-transform: uppercase; will-change: transform; }
+  .ribbon { background: var(--green); color: #03150b; overflow: hidden; padding: 18px 0; transform: rotate(-1.2deg); box-shadow: 0 20px 50px -20px rgba(63,191,107,.6); }
+  .ribbon-track { display: flex; gap: 40px; white-space: nowrap; font-weight: 900; font-size: clamp(20px, 3vw, 34px); text-transform: uppercase; will-change: transform; }
   .ribbon-track span::after { content: "✦"; margin-left: 40px; opacity: .6; }
 
   /* ===== Stats ===== */
-  .stats { border-block: 1px solid var(--line); background: var(--bg-2); }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stats { padding: 30px 0 80px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 !important; overflow: hidden; }
   .stat { padding: 40px 16px; text-align: center; border-right: 1px solid var(--line); }
   .stat:last-child { border-right: 0; }
   .stat b { display: block; font-size: clamp(34px, 4.6vw, 58px); font-weight: 900; letter-spacing: -.03em; background: linear-gradient(180deg, #ffffff, #8a948e); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -177,42 +169,40 @@
     .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   }
 
-  /* ===== 3. Problems: sticky title, items light up as you scroll ===== */
-  .problems { padding: 130px 0; }
-  .problems-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
-  .problems-title { position: sticky; top: 120px; }
+  /* ===== Problems ===== */
+  .problems { padding: 80px 0; }
+  .problems-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: start; }
+  .problems-title { position: sticky; top: 130px; }
   .problems-title .closer { margin-top: 28px; font-size: 19px; font-weight: 700; }
   .problems-title .closer span { color: var(--green); }
   .pains { display: grid; gap: 12px; }
   .pain {
-    display: flex; gap: 16px; align-items: center; padding: 22px 24px; border-radius: 16px;
-    background: var(--surface); border: 1px solid var(--line); font-weight: 600; font-size: 16px;
-    opacity: .28; transform: translateX(-14px);
+    display: flex; gap: 16px; align-items: center; padding: 20px 22px; border-radius: 16px;
+    background: rgba(20,24,22,.8); border: 1px solid var(--line); font-weight: 600; font-size: 16px;
+    opacity: .35; transform: translateX(-14px);
     transition: opacity .6s, transform .6s, border-color .6s, background .6s;
   }
-  .pain i {
-    flex: none; width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center;
-    background: rgba(63,191,107,.12); color: var(--green); font-style: normal; font-weight: 800;
-  }
-  .pain.is-lit { opacity: 1; transform: none; border-color: rgba(63,191,107,.45); background: linear-gradient(90deg, rgba(63,191,107,.12), var(--surface) 60%); }
+  .pain i { flex: none; width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; background: rgba(63,191,107,.12); color: var(--green); font-style: normal; font-weight: 800; }
+  .pain.is-lit { opacity: 1; transform: none; border-color: rgba(63,191,107,.45); background: linear-gradient(90deg, rgba(63,191,107,.14), rgba(20,24,22,.85) 60%); }
   @media (max-width: 900px) {
-    .problems-grid { grid-template-columns: 1fr; gap: 36px; }
+    .problems-grid { grid-template-columns: 1fr; gap: 32px; }
     .problems-title { position: relative; top: 0; }
-    .pain { opacity: 1; transform: none; }
   }
 
-  /* ===== 4. Services: pinned horizontal scroll (desktop) ===== */
+  /* ===== Services: pinned horizontal scroll (desktop) ===== */
   .svc-pin { height: 100vh; }
-  .svc-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
-  .svc-head { padding: 0 7vw; margin-bottom: 40px; }
+  .svc-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding-top: var(--header); }
+  .svc-head h2 { font-size: clamp(30px, 3.6vw, 50px); }
+  .svc-head { margin: 0 7vw 34px; max-width: 760px; text-shadow: 0 2px 30px rgba(0,0,0,.6); }
   .svc-track { display: flex; gap: 26px; padding: 0 7vw; will-change: transform; }
   .svc {
-    position: relative; overflow: hidden; flex: none; width: min(460px, 70vw); min-height: 380px;
-    border-radius: 24px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
-    background: linear-gradient(160deg, #1b211f, #0b0d0c 70%); border: 1px solid var(--line);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    position: relative; overflow: hidden; flex: none; width: min(460px, 70vw); min-height: 340px;
+    border-radius: 26px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
+    background: rgba(12,15,14,.8); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 40px 80px -40px rgba(0,0,0,.9);
   }
-  .svc::after { content: ""; position: absolute; right: -70px; top: -70px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(closest-side, rgba(63,191,107,.2), transparent); pointer-events: none; }
+  @media (min-width: 901px) { .svc { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); } }
+  .svc::after { content: ""; position: absolute; right: -70px; top: -70px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(closest-side, rgba(63,191,107,.22), transparent); pointer-events: none; }
   .svc .n { font-size: 56px; font-weight: 900; letter-spacing: -.04em; background: linear-gradient(180deg, #e9fff1, #3fbf6b 60%, #1f6b3b); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .svc h3 { font-size: 30px; }
   .svc p { color: var(--muted); margin-top: 12px; font-size: 15.5px; }
@@ -220,31 +210,29 @@
   .svc-hint { position: absolute; right: 7vw; bottom: 34px; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
   @media (max-width: 900px) {
     .svc-pin { height: auto; }
-    .svc-stage { position: relative; height: auto; overflow: visible; padding: 110px 0; }
-    .svc-track { flex-direction: column; transform: none !important; padding: 0 16px; }
+    .svc-stage { position: relative; height: auto; overflow: visible; padding: 80px 0; }
+    .svc-head { margin: 0 16px 28px; }
+    .svc-head h2 { font-size: clamp(30px, 8.6vw, 40px); }
+    .svc-track { flex-direction: column; transform: none !important; padding: 0 16px; gap: 16px; }
     .svc { width: 100%; min-height: 0; padding: 28px; }
     .svc-hint { display: none; }
   }
 
-  /* ===== 5. How it works: line draws with scroll ===== */
-  .how { padding: 130px 0; }
-  .timeline { position: relative; margin-top: 64px; max-width: 760px; margin-left: auto; margin-right: auto; }
-  .timeline::before { content: ""; position: absolute; left: 22px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.08); }
+  /* ===== How it works ===== */
+  .how { padding: 80px 0; }
+  .timeline { position: relative; margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .timeline::before { content: ""; position: absolute; left: 22px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.1); }
   .timeline-line { position: absolute; left: 22px; top: 0; bottom: 0; width: 2px; transform-origin: top; transform: scaleY(0); background: linear-gradient(var(--green), #bff5d0); box-shadow: 0 0 16px var(--green-glow); }
-  .step { position: relative; padding: 0 0 56px 76px; }
+  .step { position: relative; padding: 0 0 52px 76px; }
   .step:last-child { padding-bottom: 0; }
-  .step .dot {
-    position: absolute; left: 8px; top: 2px; width: 30px; height: 30px; border-radius: 50%;
-    display: grid; place-items: center; font-size: 13px; font-weight: 900; color: #03150b;
-    background: linear-gradient(180deg, #e9fff1, #3fbf6b 55%, #2a8a4c); box-shadow: 0 0 0 6px var(--bg), 0 0 20px var(--green-glow);
-  }
+  .step .dot { position: absolute; left: 8px; top: 2px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 900; color: #03150b; background: linear-gradient(180deg, #e9fff1, #3fbf6b 55%, #2a8a4c); box-shadow: 0 0 0 6px rgba(10,12,11,.9), 0 0 20px var(--green-glow); }
   .step h3 { font-size: 26px; }
   .step p { color: var(--muted); margin-top: 10px; font-size: 16px; max-width: 52ch; }
 
-  /* ===== 6. About: parallax photo ===== */
-  .about { background: var(--bg-2); padding: 130px 0; overflow: hidden; }
-  .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
-  .about-photo { border-radius: 28px; overflow: hidden; aspect-ratio: 4/5; position: relative; }
+  /* ===== About ===== */
+  .about { padding: 80px 0; }
+  .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+  .about-photo { border-radius: 24px; overflow: hidden; aspect-ratio: 4/5; position: relative; }
   .about-photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.14); will-change: transform; }
   .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(63,191,107,.2), transparent 50%); }
   .about p { color: var(--muted); margin-top: 18px; }
@@ -254,39 +242,29 @@
   .principles li::before { content: ""; flex: none; margin-top: 7px; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(180deg, #e9fff1, #3fbf6b); box-shadow: 0 0 10px var(--green-glow); }
   .principles b { display: block; font-size: 16px; }
   .principles span { color: var(--muted); font-size: 15px; }
-  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } .about-photo { aspect-ratio: 4/3; } }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } .about-photo { aspect-ratio: 4/3; } }
 
-  /* ===== 7. Areas ===== */
-  .areas { padding: 130px 0; }
-  .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 44px; }
-  .chip {
-    padding: 13px 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
-    font-weight: 600; font-size: 14px; opacity: 0; transform: translateY(16px) scale(.96);
-    transition: opacity .6s, transform .6s, border-color .3s;
-  }
+  /* ===== Areas ===== */
+  .areas { padding: 80px 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
+  .chip { padding: 13px 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(20,24,22,.85); font-weight: 600; font-size: 14px; opacity: 0; transform: translateY(16px) scale(.96); transition: opacity .6s, transform .6s, border-color .3s; }
   .chip.in { opacity: 1; transform: none; }
   .chip:hover { border-color: rgba(63,191,107,.6); }
   .chip::before { content: "📍 "; }
-  .addr { margin-top: 40px; text-align: center; color: var(--muted); font-size: 15px; }
+  .addr { margin-top: 36px; text-align: center; color: var(--muted); font-size: 15px; }
   .addr strong { color: var(--ink); }
 
-  /* ===== 8. Contact ===== */
-  .contact { padding: 130px 0; background: radial-gradient(900px 500px at 80% 20%, rgba(63,191,107,.08), transparent 70%), var(--bg); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
-  .big-phone { display: block; margin-top: 30px; font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; letter-spacing: -.01em; background: linear-gradient(180deg, #e9fff1, #3fbf6b 55%, #2a8a4c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  /* ===== Contact ===== */
+  .contact { padding: 80px 0 120px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+  .big-phone { display: block; margin-top: 30px; font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; background: linear-gradient(180deg, #e9fff1, #3fbf6b 55%, #2a8a4c); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .contact-info .sub { color: var(--muted); margin-top: 6px; }
   .hours { margin-top: 28px; display: grid; gap: 10px; color: var(--muted); font-size: 15px; }
   .hours b { color: var(--ink); }
-  form.lead-form {
-    background: linear-gradient(180deg, #161b19, #0e1110); border: 1px solid var(--line); border-radius: 26px; padding: 36px;
-    display: grid; gap: 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 40px 80px -40px rgba(0,0,0,.8);
-  }
+  form.lead-form { display: grid; gap: 16px; background: rgba(8,10,9,.6); border: 1px solid var(--line); border-radius: 22px; padding: 30px; }
   .field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--muted); }
   .field label em { color: var(--green); font-style: normal; }
-  .field input, .field select, .field textarea {
-    width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg);
-    border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; outline: none; transition: border-color .2s, box-shadow .2s;
-  }
+  .field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; outline: none; transition: border-color .2s, box-shadow .2s; }
   .field textarea { min-height: 120px; resize: vertical; }
   .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(63,191,107,.15); }
   .field select option { background: var(--bg); }
@@ -296,53 +274,40 @@
   .form-status.ok { color: var(--green); }
   .form-status.err { color: #ff8a8a; }
   form.lead-form .btn { width: 100%; }
-  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } }
-  @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; } form.lead-form { padding: 24px; } }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; } form.lead-form { padding: 20px; } }
 
   /* ===== Footer ===== */
-  footer { border-top: 1px solid var(--line); padding: 44px 0 110px; color: var(--muted); font-size: 14px; }
+  footer { border-top: 1px solid var(--line); padding: 44px 0 110px; color: var(--muted); font-size: 14px; background: var(--bg); }
   .foot { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; }
   .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
   footer a:hover { color: var(--ink); }
 
-  /* ===== Mobile sticky call bar ===== */
   .call-bar { display: none; }
-  @media (max-width: 900px) {
-    .problems, .how, .about, .areas, .contact { padding: 84px 0; }
-    .stat { padding: 28px 12px; }
-    h2 { font-size: clamp(30px, 8.6vw, 40px); }
-    .timeline { margin-top: 44px; }
-    .step { padding-left: 70px; }
-    .areas .chips { margin-top: 30px; }
-    .chapter h1, .chapter h2 { font-size: clamp(40px, 12vw, 56px); }
-    .svc-stage { padding: 84px 0; }
-    body { padding-bottom: 0; }
-  }
-  @media (max-width: 480px) {
-    .wrap { padding: 0 18px; }
-    .lead { font-size: 15px; }
-    form.lead-form { padding: 22px; border-radius: 22px; }
-  }
 
-  /* ===== Mobile intro: full-bleed film ===== */
+  /* ===== Phones ===== */
   @media (max-width: 900px) {
-    .intro-video-wrap { position: absolute; inset: 0; top: 0; right: 0; height: auto; aspect-ratio: auto; border-radius: 0; box-shadow: none; }
-    .intro-film { object-position: 50% 45%; }
-    .intro-glow, .ghost-word, .intro-cue { display: none; }
-    .intro-shade { background: linear-gradient(0deg, var(--bg) 0%, rgba(8,9,10,.88) 38%, rgba(8,9,10,.25) 70%, rgba(8,9,10,.55) 100%); }
-    .intro-copy { justify-content: flex-end; padding-bottom: 110px; gap: 20px; }
-    .chapters { min-height: 290px; }
-    .chapter h1, .chapter h2 { font-size: clamp(40px, 12vw, 56px); }
-    .chapter p { font-size: 15px; margin-top: 14px; }
-    .intro-ctas .btn { flex: 1 1 auto; min-height: 50px; padding: 14px 18px; font-size: 14px; }
-    .intro-bars { bottom: 90px; }
+    .film-shade { background: linear-gradient(0deg, rgba(8,9,10,.92) 0%, rgba(8,9,10,.55) 45%, rgba(8,9,10,.3) 75%, rgba(8,9,10,.55) 100%); }
+    .chapter { align-items: flex-end; padding: 90px 0 130px; }
+    .chapter h1, .chapter h2 { font-size: clamp(42px, 12.5vw, 60px); }
+    .chapter p { font-size: 16px; }
+    .chapter-ctas .btn { flex: 1 1 auto; }
+    .scroll-cue { display: none; }
+    h2 { font-size: clamp(30px, 8.6vw, 40px); }
+    .glass { border-radius: 24px; background: rgba(10,12,11,.86); }
+    .stats { padding: 10px 0 50px; }
+    .stat { padding: 28px 12px; }
+    .problems, .how, .about, .areas { padding: 50px 0; }
+    .contact { padding: 50px 0 90px; }
+    .step { padding-left: 66px; }
     .call-bar {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
       padding: 10px; border-radius: 20px; background: rgba(14,17,16,.92); border: 1px solid var(--line);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 20px 40px -10px rgba(0,0,0,.7);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,.7);
     }
     .call-bar .btn { min-height: 50px; padding: 12px 16px; font-size: 14px; }
   }
+  @media (max-width: 480px) { .wrap { padding: 0 14px; } .lead { font-size: 15px; } }
 
   /* ===== Reveal on scroll ===== */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
@@ -351,28 +316,24 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
-    .intro { height: auto; margin-top: 0; }
-    .ribbon-wrap { padding: 24px 0; }
-    .intro-stage { position: relative; height: auto; min-height: 90vh; padding-bottom: 60px; }
-    .intro-video-wrap { position: relative; top: auto; right: auto; height: 70svh; width: min(400px, 80%); margin: 20px auto; }
-    .chapters { min-height: 0; }
-    .chapter { position: relative; opacity: 1; transform: none; filter: none; margin-bottom: 26px; }
-    .intro-ctas { opacity: 1; transform: none; }
-    .intro-bars, .intro-cue, .ghost-word, .intro-glow { display: none; }
+    .rise, .reveal, .chip, .pain { opacity: 1; transform: none; filter: none; }
     .svc-pin { height: auto; }
-    .svc-stage { position: relative; height: auto; overflow: visible; }
+    .svc-stage { position: relative; height: auto; overflow: visible; padding: 80px 0; }
     .svc-track { flex-direction: column; transform: none !important; }
     .svc { width: 100%; min-height: 0; }
-    .pain { opacity: 1; transform: none; }
     .timeline-line { transform: none; }
-    .chip { opacity: 1; transform: none; }
-    .reveal { opacity: 1; transform: none; }
     .problems-title { position: relative; top: 0; }
     .about-photo img { transform: none; }
+    .film-progress { display: none; }
   }
 </style>
 </head>
 <body>
+
+<canvas class="film" id="film" aria-hidden="true"></canvas>
+<div class="film-shade" aria-hidden="true"></div>
+<div class="film-grain" aria-hidden="true"></div>
+<div class="film-progress" id="filmProgress" aria-hidden="true"></div>
 
 <header class="top">
   <div class="wrap top-inner">
@@ -392,58 +353,50 @@
 
 <main id="top">
 
-  <!-- 1. INTRO: scroll-scrubbed car film -->
-  <section class="intro" id="intro" aria-label="Pure Brokers introduction">
-    <div class="intro-stage">
-      <div class="intro-glow" aria-hidden="true"></div>
-      <div class="ghost-word" id="ghostWord" aria-hidden="true">BROKERS</div>
-
-      <div class="intro-video-wrap">
-        <video id="filmA" class="intro-film is-on" muted playsinline preload="auto"
-               poster="img/road-poster.jpg"
-               aria-label="Sunrise on a palm-lined Florida road, the yellow sports car waiting at the curb">
-          <source src="media/road-1-m.mp4" type="video/mp4" media="(max-width: 900px)">
-          <source src="media/road-1.mp4" type="video/mp4">
-        </video>
-        <video id="filmB" class="intro-film" muted playsinline preload="auto"
-               aria-label="Keys handed over on a sunny driveway beside the yellow sports car">
-          <source src="media/road-3-m.mp4" type="video/mp4" media="(max-width: 900px)">
-          <source src="media/road-3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="intro-shade" aria-hidden="true"></div>
-
-      <div class="wrap intro-copy">
-        <span class="eyebrow">Boca Raton · Serving all of Florida</span>
-        <div class="chapters">
-          <div class="chapter is-active" data-chapter="0">
-            <h1>Your dream car.</h1>
-            <p>Hassle and headache free. We find the car, the deal, and the insurance, all in one place.</p>
-          </div>
-          <div class="chapter" data-chapter="1">
-            <h2><em>Best</em> insurance rate.</h2>
-            <p>We shop 500+ dealers and the insurance market, so your monthly budget stays intact.</p>
-          </div>
-          <div class="chapter" data-chapter="2">
-            <h2>One place. <em>Zero</em> pressure.</h2>
-            <p>Lease, finance, insurance, delivery, and repairs, handled by one team from one call.</p>
-          </div>
-        </div>
-        <div class="intro-ctas" id="introCtas">
+  <!-- Opening: three full-screen chapters over the film -->
+  <section class="chapter" aria-label="Introduction">
+    <div class="wrap">
+      <div class="chapter-copy">
+        <span class="eyebrow rise">Boca Raton · Serving all of Florida</span>
+        <h1 class="rise d1">Your dream car.</h1>
+        <p class="rise d2">Hassle and headache free. We find the car, the deal, and the insurance, all in one place.</p>
+        <div class="chapter-ctas rise d3">
           <a class="btn btn-primary" href="tel:+15615670239">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             Call (561) 567-0239
           </a>
-          <a class="btn btn-steel" href="#contact">Free consultation</a>
+          <a class="btn btn-steel" href="sms:+15615670239">Text us now</a>
         </div>
+        <div class="scroll-cue rise d3" aria-hidden="true">Scroll</div>
       </div>
-
-      <div class="intro-bars" aria-hidden="true"><span class="bar is-on"></span><span class="bar"></span><span class="bar"></span></div>
-      <div class="intro-cue" aria-hidden="true">Scroll</div>
     </div>
   </section>
 
-  <!-- 2. Ribbon -->
+  <section class="chapter" aria-label="Insurance">
+    <div class="wrap">
+      <div class="chapter-copy">
+        <span class="eyebrow rise">The deal and the policy</span>
+        <h2 class="rise d1"><em>Best</em> insurance rate.</h2>
+        <p class="rise d2">We shop 500+ dealers and the insurance market, so your monthly budget stays intact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" aria-label="One place">
+    <div class="wrap">
+      <div class="chapter-copy">
+        <span class="eyebrow rise">One team, one call</span>
+        <h2 class="rise d1">One place. <em>Zero</em> pressure.</h2>
+        <p class="rise d2">Lease, finance, insurance, delivery, and repairs, handled by one team from one call.</p>
+        <div class="chapter-ctas rise d3">
+          <a class="btn btn-primary" href="#contact">Get a free consultation</a>
+          <a class="btn btn-steel" href="#services">See what we do</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ribbon -->
   <div class="ribbon-wrap" aria-hidden="true"><div class="ribbon">
     <div class="ribbon-track" id="ribbonTrack">
       <span>Best prices &amp; financing</span><span>Home delivery</span><span>Insurance</span><span>Repairs &amp; lease returns</span><span>Best prices &amp; financing</span><span>Home delivery</span><span>Insurance</span><span>Repairs &amp; lease returns</span>
@@ -452,39 +405,43 @@
 
   <!-- Stats -->
   <div class="stats">
-    <div class="wrap stats-grid">
-      <div class="stat"><b><span data-count="1000">1,000</span><i>+</i></b><small>Locals served</small></div>
-      <div class="stat"><b><span data-count="500">500</span><i>+</i></b><small>Dealers nationwide</small></div>
-      <div class="stat"><b>24<i>/</i>7</b><small>Available</small></div>
-      <div class="stat"><b>FL<i>·</i>US</b><small>Statewide &amp; nationwide</small></div>
+    <div class="wrap">
+      <div class="glass stats-grid">
+        <div class="stat"><b><span data-count="1000">1,000</span><i>+</i></b><small>Locals served</small></div>
+        <div class="stat"><b><span data-count="500">500</span><i>+</i></b><small>Dealers nationwide</small></div>
+        <div class="stat"><b>24<i>/</i>7</b><small>Available</small></div>
+        <div class="stat"><b>FL<i>·</i>US</b><small>Statewide &amp; nationwide</small></div>
+      </div>
     </div>
   </div>
 
-  <!-- 3. Problems -->
+  <!-- Problems -->
   <section class="problems">
-    <div class="wrap problems-grid">
-      <div class="problems-title reveal">
-        <span class="eyebrow">Sound familiar?</span>
-        <h2>Car buying shouldn't feel like a fight.</h2>
-        <p class="lead">Most people tell us the same frustrations before they call. We built Pure Brokers around fixing them.</p>
-        <p class="closer">We handle all of it. <span>You just pick the car.</span></p>
-      </div>
-      <div class="pains">
-        <div class="pain"><i>1</i>I'm overwhelmed by endless options</div>
-        <div class="pain"><i>2</i>Insurance costs always surprise me</div>
-        <div class="pain"><i>3</i>Bad experiences with dealerships in the past</div>
-        <div class="pain"><i>4</i>Salespeople make me feel rushed</div>
-        <div class="pain"><i>5</i>Lease &amp; finance terms feel like a maze</div>
-        <div class="pain"><i>6</i>My credit isn't perfect</div>
-        <div class="pain"><i>7</i>I'm tired of wasting weekends</div>
-        <div class="pain"><i>8</i>Hidden fees keep popping up</div>
-        <div class="pain"><i>9</i>Insurance companies don't get my needs</div>
-        <div class="pain"><i>10</i>I feel unprepared to negotiate</div>
+    <div class="wrap">
+      <div class="glass problems-grid">
+        <div class="problems-title reveal">
+          <span class="eyebrow">Sound familiar?</span>
+          <h2>Car buying shouldn't feel like a fight.</h2>
+          <p class="lead">Most people tell us the same frustrations before they call. We built Pure Brokers around fixing them.</p>
+          <p class="closer">We handle all of it. <span>You just pick the car.</span></p>
+        </div>
+        <div class="pains">
+          <div class="pain"><i>1</i>I'm overwhelmed by endless options</div>
+          <div class="pain"><i>2</i>Insurance costs always surprise me</div>
+          <div class="pain"><i>3</i>Bad experiences with dealerships in the past</div>
+          <div class="pain"><i>4</i>Salespeople make me feel rushed</div>
+          <div class="pain"><i>5</i>Lease &amp; finance terms feel like a maze</div>
+          <div class="pain"><i>6</i>My credit isn't perfect</div>
+          <div class="pain"><i>7</i>I'm tired of wasting weekends</div>
+          <div class="pain"><i>8</i>Hidden fees keep popping up</div>
+          <div class="pain"><i>9</i>Insurance companies don't get my needs</div>
+          <div class="pain"><i>10</i>I feel unprepared to negotiate</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Services: pinned horizontal scroll on desktop -->
+  <!-- Services: pinned horizontal scroll on desktop -->
   <section class="svc-pin" id="services">
     <div class="svc-stage">
       <div class="svc-head reveal">
@@ -513,111 +470,119 @@
     </div>
   </section>
 
-  <!-- 5. How it works -->
+  <!-- How it works -->
   <section class="how">
     <div class="wrap">
-      <div class="center reveal">
-        <span class="eyebrow">How it works</span>
-        <h2>Three steps. No drama.</h2>
-      </div>
-      <div class="timeline" id="timeline">
-        <div class="timeline-line" id="timelineLine"></div>
-        <div class="step reveal"><span class="dot">1</span><h3>Tell us what you need</h3><p>Fill out the form or call or text. Tell us the car, the budget, and what's been frustrating you.</p></div>
-        <div class="step reveal"><span class="dot">2</span><h3>We do the legwork</h3><p>We shop our dealer network and insurance options and bring you clear, transparent offers.</p></div>
-        <div class="step reveal"><span class="dot">3</span><h3>Sign and drive</h3><p>Pick your deal. We can deliver the car and documents straight to your driveway.</p></div>
+      <div class="glass">
+        <div class="center reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>Three steps. No drama.</h2>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="timeline-line" id="timelineLine"></div>
+          <div class="step reveal"><span class="dot">1</span><h3>Tell us what you need</h3><p>Fill out the form or call or text. Tell us the car, the budget, and what's been frustrating you.</p></div>
+          <div class="step reveal"><span class="dot">2</span><h3>We do the legwork</h3><p>We shop our dealer network and insurance options and bring you clear, transparent offers.</p></div>
+          <div class="step reveal"><span class="dot">3</span><h3>Sign and drive</h3><p>Pick your deal. We can deliver the car and documents straight to your driveway.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. About -->
+  <!-- About -->
   <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div class="about-photo reveal">
-        <img id="aboutImg" src="img/img3534.jpeg" alt="A Pure Brokers vehicle" loading="lazy">
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">About Pure Brokers</span>
-        <h2>Built by people who've seen the other side.</h2>
-        <p>For over a decade, our founder worked in the trenches of the automotive industry: dealerships, finance offices, and insurance desks. He saw firsthand how buyers get squeezed by hidden fees, confusing terms, pressure tactics, and insurance quotes that feel like punishment.</p>
-        <p>Pure Brokers started as a simple idea: <strong>what if car buying was actually enjoyable?</strong> We don't have a fancy origin story. We have hard-earned relationships with 500+ dealers nationwide and a team that's obsessed with fairness.</p>
-        <ul class="principles">
-          <li><div><b>We work for you, not the dealers.</b><span>Our fee is transparent, and so is every offer we bring.</span></div></li>
-          <li><div><b>South Florida roots, nationwide reach.</b><span>Whether you're in Boca, Miami, or Nebraska, we have the contacts to find your match.</span></div></li>
-          <li><div><b>Insurance isn't an afterthought.</b><span>We tackle it upfront so your monthly budget stays intact.</span></div></li>
-        </ul>
+    <div class="wrap">
+      <div class="glass about-grid">
+        <div class="about-photo reveal">
+          <img id="aboutImg" src="img/img3534.jpeg" alt="A Pure Brokers vehicle" loading="lazy">
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">About Pure Brokers</span>
+          <h2>Built by people who've seen the other side.</h2>
+          <p>For over a decade, our founder worked in the trenches of the automotive industry: dealerships, finance offices, and insurance desks. He saw firsthand how buyers get squeezed by hidden fees, confusing terms, pressure tactics, and insurance quotes that feel like punishment.</p>
+          <p>Pure Brokers started as a simple idea: <strong>what if car buying was actually enjoyable?</strong> We don't have a fancy origin story. We have hard-earned relationships with 500+ dealers nationwide and a team that's obsessed with fairness.</p>
+          <ul class="principles">
+            <li><div><b>We work for you, not the dealers.</b><span>Our fee is transparent, and so is every offer we bring.</span></div></li>
+            <li><div><b>South Florida roots, nationwide reach.</b><span>Whether you're in Boca, Miami, or Nebraska, we have the contacts to find your match.</span></div></li>
+            <li><div><b>Insurance isn't an afterthought.</b><span>We tackle it upfront so your monthly budget stays intact.</span></div></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. Areas -->
+  <!-- Areas -->
   <section class="areas" id="areas">
-    <div class="wrap center">
-      <div class="reveal">
-        <span class="eyebrow">Areas we serve</span>
-        <h2>Proudly serving South Florida and beyond.</h2>
+    <div class="wrap">
+      <div class="glass center">
+        <div class="reveal">
+          <span class="eyebrow">Areas we serve</span>
+          <h2>Proudly serving South Florida and beyond.</h2>
+        </div>
+        <div class="chips" id="chips">
+          <span class="chip">Boca Raton</span>
+          <span class="chip">Miami Metro</span>
+          <span class="chip">Miami</span>
+          <span class="chip">Broward County</span>
+          <span class="chip">Miami-Dade County</span>
+          <span class="chip">Palm Beach County</span>
+          <span class="chip">Fort Lauderdale</span>
+          <span class="chip">Hollywood</span>
+          <span class="chip">Pompano Beach</span>
+          <span class="chip">West Palm Beach</span>
+        </div>
+        <p class="addr"><strong>Office:</strong> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</p>
       </div>
-      <div class="chips" id="chips">
-        <span class="chip">Boca Raton</span>
-        <span class="chip">Miami Metro</span>
-        <span class="chip">Miami</span>
-        <span class="chip">Broward County</span>
-        <span class="chip">Miami-Dade County</span>
-        <span class="chip">Palm Beach County</span>
-        <span class="chip">Fort Lauderdale</span>
-        <span class="chip">Hollywood</span>
-        <span class="chip">Pompano Beach</span>
-        <span class="chip">West Palm Beach</span>
-      </div>
-      <p class="addr"><strong>Office:</strong> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</p>
     </div>
   </section>
 
-  <!-- 8. Contact -->
+  <!-- Contact -->
   <section class="contact" id="contact">
-    <div class="wrap contact-grid">
-      <div class="contact-info reveal">
-        <span class="eyebrow">Free consultation</span>
-        <h2>Let's make it happen.</h2>
-        <p class="lead">Thanks for stopping by. Fill out the form and the Pure Brokers team will take it from there. Tell us if you need help leasing, buying, repairing, insuring, or accessorizing your vehicle.</p>
-        <a class="big-phone" href="tel:+15615670239">(561) 567-0239</a>
-        <p class="sub">Call or text for new inquiries</p>
-        <div class="hours">
-          <div><b>Hours:</b> Available 24/7</div>
-          <div><b>Office:</b> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</div>
+    <div class="wrap">
+      <div class="glass contact-grid">
+        <div class="contact-info reveal">
+          <span class="eyebrow">Free consultation</span>
+          <h2>Let's make it happen.</h2>
+          <p class="lead">Thanks for stopping by. Fill out the form and the Pure Brokers team will take it from there. Tell us if you need help leasing, buying, repairing, insuring, or accessorizing your vehicle.</p>
+          <a class="big-phone" href="tel:+15615670239">(561) 567-0239</a>
+          <p class="sub">Call or text for new inquiries</p>
+          <div class="hours">
+            <div><b>Hours:</b> Available 24/7</div>
+            <div><b>Office:</b> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</div>
+          </div>
         </div>
-      </div>
 
-      <form class="lead-form reveal" id="lead" novalidate>
-        <div class="row-2">
-          <div class="field">
-            <label for="name">Name <em>*</em></label>
-            <input id="name" name="name" autocomplete="name" required>
+        <form class="lead-form reveal" id="lead" novalidate>
+          <div class="row-2">
+            <div class="field">
+              <label for="name">Name <em>*</em></label>
+              <input id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="contact">Email or cell <em>*</em></label>
+              <input id="contact" name="contact" autocomplete="email" inputmode="email" required>
+            </div>
           </div>
           <div class="field">
-            <label for="contact">Email or cell <em>*</em></label>
-            <input id="contact" name="contact" autocomplete="email" inputmode="email" required>
+            <label for="brand">Brand <em>*</em></label>
+            <select id="brand" name="brand" required>
+              <option value="">Select one</option>
+              <option>Acura</option><option>Audi</option><option>BMW</option><option>Ferrari</option>
+              <option>Honda</option><option>Hyundai</option><option>Infiniti</option><option>Lamborghini</option>
+              <option>Land Rover</option><option>Lexus</option><option>Mazda</option><option>Mercedes-Benz</option>
+              <option>Mitsubishi</option><option>Nissan</option><option>Rolls-Royce</option><option>Saab</option>
+              <option>Subaru</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option>
+              <option>Other</option>
+            </select>
           </div>
-        </div>
-        <div class="field">
-          <label for="brand">Brand <em>*</em></label>
-          <select id="brand" name="brand" required>
-            <option value="">Select one</option>
-            <option>Acura</option><option>Audi</option><option>BMW</option><option>Ferrari</option>
-            <option>Honda</option><option>Hyundai</option><option>Infiniti</option><option>Lamborghini</option>
-            <option>Land Rover</option><option>Lexus</option><option>Mazda</option><option>Mercedes-Benz</option>
-            <option>Mitsubishi</option><option>Nissan</option><option>Rolls-Royce</option><option>Saab</option>
-            <option>Subaru</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="details">Comments / details on your request <em>*</em></label>
-          <textarea id="details" name="details" placeholder="Leasing, buying, repairing, insuring, or accessorizing? Tell us what you're looking for." required></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Submit request</button>
-        <p class="form-status" role="status" aria-live="polite"></p>
-        <p class="form-note">Prefer to talk? Call or text (561) 567-0239.</p>
-      </form>
+          <div class="field">
+            <label for="details">Comments / details on your request <em>*</em></label>
+            <textarea id="details" name="details" placeholder="Leasing, buying, repairing, insuring, or accessorizing? Tell us what you're looking for." required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit request</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Prefer to talk? Call or text (561) 567-0239.</p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -649,12 +614,150 @@
   const FORM_ENDPOINT = "";
 
   document.getElementById("yr").textContent = new Date().getFullYear();
-
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
+  const isPhone = window.matchMedia("(max-width: 900px)").matches;
   const clamp01 = (n) => Math.min(1, Math.max(0, n));
 
-  // ---------- Reveal, chips, and count-up on first view ----------
+  /* =========================================================
+     FILM: three shots drawn on a fixed canvas behind the page.
+     Page scroll drives the playhead; it eases toward the target
+     and blends neighbouring frames, so motion stays fluid.
+     ========================================================= */
+  const SHOTS = [
+    { key: "a", count: 61, focusX: 0.5,  focusY: 0.62 },  // sunrise road
+    { key: "b", count: 61, focusX: 0.42, focusY: 0.55 },  // causeway (landscape)
+    { key: "c", count: 61, focusX: 0.62, focusY: 0.5  },  // keys handed over
+  ];
+  const canvas = document.getElementById("film");
+  const ctx = canvas.getContext("2d", { alpha: false });
+  const progressBar = document.getElementById("filmProgress");
+  const STEP = isPhone ? 2 : 1;                 // phones load every other frame
+  const pad = (n) => String(n).padStart(3, "0");
+
+  // Frame table per shot: images that load progressively
+  SHOTS.forEach((s) => {
+    s.frames = [];
+    for (let i = 1; i <= s.count; i++) {
+      const wanted = (i - 1) % STEP === 0 || i === s.count;
+      s.frames.push({ src: `film/${s.key}_${pad(i)}.webp`, img: null, ready: false, wanted });
+    }
+  });
+
+  // Load order: first frames of the opening shot, then coarse-to-fine across everything
+  const queue = [];
+  const seen = new Set();
+  const push = (si, fi) => { const id = si + ":" + fi; const f = SHOTS[si].frames[fi]; if (f && f.wanted && !seen.has(id)) { seen.add(id); queue.push([si, fi]); } };
+  for (let i = 0; i < 8; i++) push(0, i * STEP);
+  for (const stride of [16, 8, 4, 2, 1]) SHOTS.forEach((s, si) => { for (let fi = 0; fi < s.count; fi += stride) push(si, fi); push(si, s.count - 1); });
+
+  let inflight = 0, dirty = true;
+  function pump() {
+    while (inflight < 6 && queue.length) {
+      const [si, fi] = queue.shift();
+      const f = SHOTS[si].frames[fi];
+      const img = new Image();
+      img.decoding = "async";
+      inflight++;
+      img.onload = () => { f.img = img; f.ready = true; inflight--; dirty = true; kick(); pump(); };
+      img.onerror = () => { inflight--; pump(); };
+      img.src = f.src;
+    }
+  }
+
+  // Nearest loaded frames around a fractional position
+  function nearest(s, pos) {
+    let lo = Math.floor(pos), hi = Math.ceil(pos);
+    while (lo >= 0 && !s.frames[lo].ready) lo--;
+    while (hi < s.count && !s.frames[hi].ready) hi++;
+    if (lo < 0 && hi >= s.count) return null;
+    if (lo < 0) return [hi, hi, 0];
+    if (hi >= s.count) return [lo, lo, 0];
+    return [lo, hi, hi === lo ? 0 : (pos - lo) / (hi - lo)];
+  }
+
+  let cw = 0, ch = 0;
+  function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, isPhone ? 2 : 1.5);
+    cw = Math.round(window.innerWidth * dpr);
+    ch = Math.round(window.innerHeight * dpr);
+    canvas.width = cw; canvas.height = ch;
+    dirty = true;
+  }
+
+  function drawCover(img, s, alpha) {
+    if (alpha <= 0.001) return;
+    const iw = img.naturalWidth, ih = img.naturalHeight;
+    const scale = Math.max(cw / iw, ch / ih) * 1.04;       // slight overscan for the drift
+    const w = iw * scale, h = ih * scale;
+    const x = (cw - w) * s.focusX, y = (ch - h) * s.focusY;
+    ctx.globalAlpha = alpha;
+    ctx.drawImage(img, x, y, w, h);
+  }
+
+  function drawShot(si, local, alpha) {
+    const s = SHOTS[si];
+    const n = nearest(s, clamp01(local) * (s.count - 1));
+    if (!n) return false;
+    const [lo, hi, t] = n;
+    drawCover(s.frames[lo].img, s, alpha);
+    if (hi !== lo && t > 0) drawCover(s.frames[hi].img, s, alpha * t);
+    return true;
+  }
+
+  // Map page progress (0..1) to shots with soft crossfades between them
+  const FADE = 0.07;
+  function render(p) {
+    p = clamp01(p);
+    const seg = 1 / SHOTS.length;
+    const k = Math.min(SHOTS.length - 1, Math.floor(p / seg));
+    const local = (p - k * seg) / seg;
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = "#08090a";
+    ctx.fillRect(0, 0, cw, ch);
+    const drew = drawShot(k, local, 1);
+    // Blend into the next shot near the end of this one
+    const toNext = p - ((k + 1) * seg - FADE / 2);
+    if (k < SHOTS.length - 1 && toNext > 0) drawShot(k + 1, 0, clamp01(toNext / FADE));
+    // Finish blending out of the previous shot at the start of this one
+    const fromPrev = (k * seg + FADE / 2) - p;
+    if (k > 0 && fromPrev > 0) drawShot(k - 1, 1, clamp01(fromPrev / FADE));
+    ctx.globalAlpha = 1;
+    if (drew) canvas.style.backgroundImage = "none";
+  }
+
+  let target = 0, current = 0, last = performance.now(), running = false;
+  function readTarget() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    target = max > 0 ? clamp01(window.scrollY / max) : 0;
+  }
+  function frame(now) {
+    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000)); last = now;
+    const k = 1 - Math.exp(-dt * 7.5);                // smooth, frame-rate independent easing
+    current += (target - current) * k;
+    const settled = Math.abs(target - current) < 0.00005;
+    if (settled) current = target;
+    progressBar.style.transform = `scaleX(${current.toFixed(4)})`;
+    render(current);
+    dirty = false;
+    if (!settled || dirty) requestAnimationFrame(frame); else running = false;
+  }
+  function kick() { if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); } }
+
+  resizeCanvas();
+  readTarget(); current = target;
+  pump();
+  if (reduceMotion) {
+    // Still image only: draw the first frame once it arrives
+    const first = SHOTS[0].frames[0];
+    const once = () => { if (first.ready) render(0); else setTimeout(once, 120); };
+    once();
+  } else {
+    window.addEventListener("scroll", () => { readTarget(); kick(); }, { passive: true });
+  }
+  window.addEventListener("resize", () => { resizeCanvas(); readTarget(); kick(); measure(); });
+
+  /* ===== Reveals, chips, count-up ===== */
   function countUp(el) {
     if (!el || reduceMotion) return;
     const end = Number(el.dataset.count), dur = 1400, t0 = performance.now();
@@ -675,16 +778,9 @@
       io.unobserve(el);
     });
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll(".reveal, .stat, .chips").forEach((el) => io.observe(el));
+  document.querySelectorAll(".reveal, .rise, .stat, .chips").forEach((el) => io.observe(el));
 
-  // ---------- Scroll-linked experience ----------
-  const intro = document.getElementById("intro");
-  const filmA = document.getElementById("filmA");
-  const filmB = document.getElementById("filmB");
-  const chapters = [...document.querySelectorAll(".intro .chapter")];
-  const bars = [...document.querySelectorAll(".intro-bars .bar")];
-  const introCtas = document.getElementById("introCtas");
-  const ghostWord = document.getElementById("ghostWord");
+  /* ===== Section effects tied to scroll ===== */
   const ribbonTrack = document.getElementById("ribbonTrack");
   const svcPin = document.getElementById("services");
   const svcTrack = document.getElementById("svcTrack");
@@ -696,81 +792,42 @@
 
   let svcShift = 0;
   function measure() {
-    if (svcPin && isDesktop() && !reduceMotion) {
+    if (isDesktop() && !reduceMotion) {
       svcShift = Math.max(0, svcTrack.scrollWidth - window.innerWidth);
       svcPin.style.height = (window.innerHeight + svcShift) + "px";
-    } else if (svcPin) {
+    } else {
       svcPin.style.height = "";
       svcTrack.style.transform = "";
       svcShift = 0;
     }
-    requestUpdate();
+    readTarget();
+    sectionsUpdate();
   }
 
-  let ticking = false, activeChapter = -1;
-  function requestUpdate() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-
-  function update() {
+  let ticking = false;
+  function sectionsUpdate() {
     ticking = false;
-    const vh = window.innerHeight;
     if (reduceMotion) return;
-
-    // Intro: chapters, bars, CTAs, ghost word, and the scrubbed film
-    const range = intro.offsetHeight - vh;
-    const p = range > 0 ? clamp01(-rect(intro).top / range) : 0;
-    const idx = Math.min(2, Math.floor(p * 3));
-    if (idx !== activeChapter) {
-      activeChapter = idx;
-      chapters.forEach((c, i) => { c.classList.toggle("is-active", i === idx); c.classList.toggle("is-past", i < idx); });
-      bars.forEach((b, i) => b.classList.toggle("is-on", i === idx));
-    }
-    introCtas.classList.toggle("is-on", p > 0.9);
-    if (ghostWord) ghostWord.style.transform = `translate3d(${(-p * 38).toFixed(2)}vw,0,0)`;
-    // Shot A covers the first half of the scroll, shot B the second half; they crossfade at the midpoint
-    const aOn = p < 0.5;
-    filmA.classList.toggle("is-on", aOn);
-    filmB.classList.toggle("is-on", !aOn);
-    scrub(filmA, p * 2, p < 0.55);
-    scrub(filmB, (p - 0.5) * 2, p > 0.45);
-
-    // Ribbon drifts with scroll
+    const vh = window.innerHeight;
     const rr = rect(ribbonTrack.parentElement);
     ribbonTrack.style.transform = `translate3d(${(-clamp01((vh - rr.top) / (vh + rr.height)) * 35).toFixed(2)}%,0,0)`;
-
-    // Services: vertical scroll drives the horizontal track (desktop)
     if (svcShift > 0) {
       const sr = svcPin.offsetHeight - vh;
       const sp = sr > 0 ? clamp01(-rect(svcPin).top / sr) : 0;
       svcTrack.style.transform = `translate3d(${(-sp * svcShift).toFixed(1)}px,0,0)`;
     }
-
-    // Problems: each line lights up as it reaches the reading line
-    pains.forEach((el) => el.classList.toggle("is-lit", rect(el).top < vh * 0.78));
-
-    // How it works: the line draws down as you scroll
+    pains.forEach((el) => el.classList.toggle("is-lit", rect(el).top < vh * 0.8));
     const tr = rect(timeline);
     timelineLine.style.transform = `scaleY(${clamp01((vh * 0.75 - tr.top) / tr.height).toFixed(3)})`;
-
-    // About: photo drifts against the scroll
     const ar = rect(aboutImg.parentElement);
     const k = (ar.top + ar.height / 2 - vh / 2) / vh;
     aboutImg.style.transform = `translate3d(0,${(k * -50).toFixed(1)}px,0) scale(1.14)`;
   }
-
-  function scrub(v, local, active) {
-    if (!active || v.readyState < 1 || !isFinite(v.duration) || v.seeking) return;
-    const t = Math.min(1, Math.max(0, local)) * v.duration;
-    if (Math.abs(v.currentTime - t) > 0.03) v.currentTime = t;
-  }
-  [filmA, filmB].forEach((v) => {
-    v.addEventListener("seeked", requestUpdate);
-    v.addEventListener("loadeddata", () => { v.pause(); requestUpdate(); });
-  });
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", measure);
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(sectionsUpdate); } }, { passive: true });
   measure();
+  kick();
 
-  // ---------- Lead form ----------
+  /* ===== Lead form ===== */
   const form = document.getElementById("lead");
   const status = form.querySelector(".form-status");
   form.addEventListener("submit", async (ev) => {
