@@ -2,860 +2,1001 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pure Brokers | Dream Car + Best Insurance Rates | Boca Raton, FL</title>
-<meta name="description" content="Pure Brokers gets you the right car, the best lease or finance deal, and the lowest insurance rate in one place. Headquartered in Boca Raton, serving all of Florida and nationwide.">
-<meta property="og:title" content="Pure Brokers | Dream Car + Best Insurance Rates">
-<meta property="og:description" content="Your dream car and best insurance rates, all in one place. Hassle and headache free.">
-<meta property="og:image" content="img/road-poster.jpg">
-<meta name="theme-color" content="#08090a">
-<link rel="preload" as="image" href="film/a_001.webp" type="image/webp">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pure Brokers | Your Dream Car & the Best Insurance Rate | Boca Raton, FL</title>
+<meta name="description" content="Pure Brokers finds your car, secures the best lease or finance deal, and the lowest insurance rate, all in one place. Headquartered in Boca Raton, serving all of Florida and nationwide.">
+<meta property="og:title" content="Pure Brokers | Your dream car. The best rate. One place.">
+<meta property="og:description" content="Hassle and headache free. Car buying, leasing, financing and insurance handled by one team. Boca Raton, FL.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="theme-color" content="#070908">
+<link rel="icon" href="img/logo.png">
+<link rel="preload" as="image" href="assets/hero-2400.webp" media="(min-width: 901px)">
+<link rel="preload" as="image" href="assets/hero-1200.webp" media="(max-width: 900px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/lenis.css">
 <style>
   :root {
-    --bg: #08090a;
-    --bg-2: #0e1110;
-    --surface: #141816;
-    --line: rgba(255,255,255,.09);
-    --ink: #f3f6f4;
-    --muted: #a6b0a9;
-    --green: #3fbf6b;
-    --green-glow: rgba(63,191,107,.35);
-    --glass: rgba(10,12,11,.72);
-    --max: 1180px;
-    --header: 73px;
+    --bg: #070908;
+    --bg-1: #0b0e0c;
+    --bg-2: #111613;
+    --ivory: #ece8de;
+    --ivory-2: #cfcabd;
+    --muted: #8f978f;
+    --line: rgba(236,232,222,.12);
+    --line-2: rgba(236,232,222,.22);
+    --emerald: #1f7a4d;
+    --emerald-2: #2a9a62;
+    --mint: #8fdcae;
+    --serif: "Instrument Serif", "Times New Roman", serif;
+    --sans: "Inter Tight", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --max: 1320px;
+    --gutter: clamp(18px, 4vw, 56px);
+    --ease: cubic-bezier(.22, 1, .36, 1);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    background: var(--bg); color: var(--ink); line-height: 1.6;
-    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    background: var(--bg); color: var(--ivory); font-family: var(--sans); font-weight: 400;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  img { max-width: 100%; display: block; }
+  img, video { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
-  section { position: relative; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--green);
+  button { font: inherit; color: inherit; }
+  ::selection { background: var(--emerald); color: var(--ivory); }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; }
+  .label {
+    display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 500;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--ivory-2);
   }
-  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--green); border-radius: 2px; }
-  h1, h2, h3 { font-weight: 800; line-height: 1.04; letter-spacing: -.03em; }
-  h2 { font-size: clamp(34px, 5vw, 60px); margin-top: 14px; }
-  .lead { color: var(--muted); font-size: clamp(16px, 1.5vw, 18px); max-width: 60ch; margin-top: 16px; }
-  .center { text-align: center; }
-  .center .lead { margin-left: auto; margin-right: auto; }
+  .label::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px rgba(143,220,174,.7); }
+  .h-xl { font-family: var(--serif); font-weight: 400; font-size: clamp(52px, 8.4vw, 148px); line-height: .92; letter-spacing: -.025em; }
+  .h-lg { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.6vw, 92px); line-height: .98; letter-spacing: -.02em; }
+  .h-md { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.4vw, 52px); line-height: 1.04; letter-spacing: -.015em; }
+  em, .it { font-style: italic; }
+  .accent { color: var(--mint); }
+  .muted { color: var(--muted); }
+  .lead { font-size: clamp(16px, 1.25vw, 19px); color: var(--ivory-2); max-width: 54ch; font-weight: 300; }
 
-  /* ===== The film: fixed behind the whole page, driven by scroll ===== */
-  .film {
-    position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block;
-    background: #08090a url("img/road-poster.jpg") center 60% / cover no-repeat;
-  }
-  .film-shade {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(120% 90% at 70% 50%, transparent 40%, rgba(8,9,10,.65) 100%),
-      linear-gradient(90deg, rgba(8,9,10,.88) 0%, rgba(8,9,10,.55) 38%, rgba(8,9,10,.18) 70%, rgba(8,9,10,.3) 100%);
-  }
-  .film-grain {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .06; mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-  .film-progress {
-    position: fixed; left: 0; right: 0; top: var(--header); height: 2px; z-index: 49; pointer-events: none;
-    background: linear-gradient(90deg, var(--green), #bff5d0); transform-origin: left; transform: scaleX(0);
-    box-shadow: 0 0 12px var(--green-glow);
-  }
-  main, footer { position: relative; z-index: 1; }
-
-  /* Glass panels keep every section readable on top of the film */
-  .glass {
-    background: var(--glass); border: 1px solid var(--line); border-radius: 30px;
-    padding: clamp(26px, 4.4vw, 64px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 40px 90px -40px rgba(0,0,0,.85);
-  }
-  @media (min-width: 901px) {
-    .glass { backdrop-filter: blur(16px) saturate(130%); -webkit-backdrop-filter: blur(16px) saturate(130%); }
-  }
-
-  /* ===== Buttons ===== */
+  /* ================= Buttons ================= */
   .btn {
-    position: relative; overflow: hidden; isolation: isolate;
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 16px 28px; border-radius: 999px; font: inherit; font-weight: 800; font-size: 15px;
-    border: 1px solid transparent; cursor: pointer; min-height: 54px;
-    transition: transform .25s, box-shadow .25s, filter .25s, color .25s, border-color .25s;
+    --h: 58px;
+    position: relative; isolation: isolate; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 14px; height: var(--h);
+    padding: 0 8px 0 26px; border-radius: 999px; border: 1px solid transparent;
+    font-size: 15px; font-weight: 500; letter-spacing: .01em; cursor: pointer; white-space: nowrap;
+    transition: color .5s var(--ease), border-color .5s var(--ease);
+    will-change: transform;
   }
-  .btn svg { width: 18px; height: 18px; flex: none; }
-  .btn::after {
-    content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1;
-    background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent);
-    transform: skewX(-18deg); transition: left .7s ease;
+  .btn::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+    transform: scaleX(0); transform-origin: right; transition: transform .6s var(--ease);
   }
-  .btn:hover::after { left: 120%; }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-primary {
-    color: #03150b; text-shadow: 0 1px 0 rgba(255,255,255,.45);
+  .btn:hover::before, .btn:focus-visible::before { transform: scaleX(1); transform-origin: left; }
+  .btn .ico {
+    position: relative; overflow: hidden; flex: none; width: 42px; height: 42px; border-radius: 50%;
+    display: grid; place-items: center; transition: background .5s var(--ease), color .5s var(--ease);
+  }
+  .btn .ico svg { width: 16px; height: 16px; transition: transform .5s var(--ease); }
+  .btn .ico svg + svg { position: absolute; transform: translateX(-200%); }
+  .btn:hover .ico svg:first-child { transform: translateX(200%); }
+  .btn:hover .ico svg + svg { transform: translateX(0); }
+  .btn-primary { background: var(--ivory); color: #0b0e0c; }
+  .btn-primary::before { background: var(--emerald); }
+  .btn-primary .ico { background: var(--emerald); color: var(--ivory); }
+  .btn-primary:hover { color: var(--ivory); }
+  .btn-primary:hover .ico { background: var(--ivory); color: var(--emerald); }
+  .btn-ghost { border-color: var(--line-2); color: var(--ivory); background: rgba(7,9,8,.25); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .btn-ghost::before { background: var(--ivory); }
+  .btn-ghost .ico { background: rgba(236,232,222,.1); }
+  .btn-ghost:hover { color: #0b0e0c; border-color: var(--ivory); }
+  .btn-ghost:hover .ico { background: var(--emerald); color: var(--ivory); }
+  .btn:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+  .btn-sm { --h: 46px; padding: 0 6px 0 20px; font-size: 14px; gap: 10px; }
+  .btn-sm .ico { width: 34px; height: 34px; }
+  .link-u { position: relative; display: inline-block; }
+  .link-u::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
+  .link-u:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  /* ================= Loader ================= */
+  .loader { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: grid; place-items: center; }
+  .loader-inner { text-align: center; }
+  .loader-mark { font-family: var(--serif); font-size: clamp(40px, 6vw, 84px); line-height: 1; overflow: hidden; }
+  .loader-mark span { display: inline-block; }
+  .loader-bar { margin: 26px auto 0; width: min(240px, 60vw); height: 1px; background: var(--line); overflow: hidden; }
+  .loader-bar i { display: block; height: 100%; background: var(--mint); transform: scaleX(0); transform-origin: left; }
+  .loader-count { margin-top: 14px; font-size: 12px; letter-spacing: .22em; color: var(--muted); font-variant-numeric: tabular-nums; }
+  html.no-loader .loader { display: none; }
+
+  /* ================= Header ================= */
+  .header { position: fixed; top: 0; left: 0; right: 0; z-index: 60; transition: background .5s var(--ease), border-color .5s, transform .6s var(--ease); border-bottom: 1px solid transparent; }
+  .header.is-solid { background: rgba(7,9,8,.72); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-color: var(--line); }
+  .header.is-hidden { transform: translateY(-100%); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 34px; height: 34px; border-radius: 9px; background: var(--ivory); padding: 3px; }
+  .brand b { font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: -.01em; line-height: 1; }
+  .nav { display: flex; align-items: center; gap: 34px; font-size: 14px; color: var(--ivory-2); }
+  .nav a.link-u:hover { color: var(--ivory); }
+  .nav-phone { font-variant-numeric: tabular-nums; }
+  @media (max-width: 1040px) { .nav .link-u.opt { display: none; } }
+  @media (max-width: 640px) { .nav .nav-phone, .nav .btn { display: none; } .nav .menu-call { display: inline-flex; } }
+  .menu-call { display: none; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 13px; }
+
+  /* ================= Hero ================= */
+  .hero { position: relative; height: 100vh; height: 100svh; min-height: 620px; }
+  .hero-media {
+    position: absolute; inset: 0; overflow: hidden; background: #050605;
+    clip-path: inset(0 0 0 0 round 0px); will-change: clip-path, transform;
+  }
+  .hero-media video, .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; }
+  .hero-media::after {
+    content: ""; position: absolute; inset: 0;
     background:
-      repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 3px),
-      linear-gradient(180deg, #e9fff1 0%, #8fe6ad 18%, #3fbf6b 46%, #2a8a4c 52%, #5fd98a 68%, #c9f8d9 86%, #46a86a 100%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -2px 3px rgba(0,40,15,.45), 0 0 0 1px rgba(0,0,0,.45), 0 14px 34px -12px rgba(63,191,107,.7);
+      linear-gradient(90deg, rgba(7,9,8,.82) 0%, rgba(7,9,8,.55) 32%, rgba(7,9,8,.05) 62%),
+      linear-gradient(0deg, rgba(7,9,8,.75) 0%, rgba(7,9,8,0) 34%),
+      linear-gradient(180deg, rgba(7,9,8,.55) 0%, rgba(7,9,8,0) 22%);
   }
-  .btn-primary:hover { filter: brightness(1.06) saturate(1.05); }
-  .btn-primary:active { transform: translateY(1px); }
-  .btn-steel {
-    color: var(--ink);
-    background:
-      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px),
-      linear-gradient(180deg, #3a403e 0%, #1a1e1d 42%, #0d100f 56%, #252b29 88%, #3d4442 100%);
-    border-color: rgba(255,255,255,.12);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 2px rgba(0,0,0,.6), 0 12px 26px -14px rgba(0,0,0,.9);
-  }
-  .btn-steel:hover { border-color: rgba(63,191,107,.7); color: #bff5d0; }
+  .hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: clamp(36px, 6vh, 72px); }
+  .hero .label { margin-bottom: 28px; }
+  .hero h1 { max-width: 11ch; }
+  .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+  .hero-sub { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 30px; margin-top: 34px; }
+  .hero-sub .lead { max-width: 42ch; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 10px 34px; margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ivory-2); }
+  .hero-facts span { display: inline-flex; align-items: center; gap: 10px; }
+  .hero-facts span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--mint); }
+  .hero-scroll { margin-left: auto; color: var(--muted); letter-spacing: .2em; text-transform: uppercase; font-size: 11px; }
 
-  /* ===== Header ===== */
-  header.top {
-    position: sticky; top: 0; z-index: 50; height: var(--header);
-    backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
-    background: rgba(8,9,10,.72); border-bottom: 1px solid var(--line);
-  }
-  .top-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .04em; font-size: 17px; }
-  .brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; border-radius: 10px; padding: 4px; }
-  .nav { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 600; color: var(--muted); }
-  .nav a:hover { color: var(--ink); }
-  .nav .btn { padding: 11px 20px; min-height: 0; font-size: 14px; }
-  @media (max-width: 820px) { .nav a.hide-sm { display: none; } }
-  @media (max-width: 480px) { .nav .btn-primary { display: none; } }
+  /* ================= Manifesto ================= */
+  .manifesto { padding: clamp(110px, 16vw, 220px) 0 clamp(90px, 12vw, 160px); }
+  .manifesto .label { margin-bottom: 40px; }
+  .manifesto-text { font-family: var(--serif); font-size: clamp(34px, 4.9vw, 82px); line-height: 1.06; letter-spacing: -.015em; max-width: 22ch; }
+  .manifesto-text .w { display: inline-block; }
+  .manifesto-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 70px; max-width: 900px; margin-left: auto; }
+  .manifesto-foot p { color: var(--ivory-2); font-weight: 300; }
 
-  /* ===== Opening chapters: full screens in normal flow, over the film ===== */
-  .chapter { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 100px 0; }
-  .chapter:first-of-type { min-height: calc(100svh - var(--header)); }
-  .chapter .wrap { width: 100%; }
-  .chapter-copy { max-width: 640px; text-shadow: 0 2px 30px rgba(0,0,0,.55); }
-  .chapter h1, .chapter h2 { font-size: clamp(54px, 7.6vw, 116px); font-weight: 900; line-height: .95; letter-spacing: -.045em; margin-top: 18px; }
-  .chapter em { font-style: normal; color: var(--green); }
-  .chapter p { margin-top: 24px; color: #d3dad5; font-size: clamp(16px, 1.5vw, 20px); max-width: 44ch; }
-  .chapter-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-  .scroll-cue { margin-top: 46px; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-  .scroll-cue::after { content: ""; display: block; width: 1px; height: 38px; margin-top: 10px; background: linear-gradient(var(--green), transparent); animation: cue 1.8s ease-in-out infinite; transform-origin: top; }
-  @keyframes cue { 0%,100% { transform: scaleY(.3); opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
-
-  /* Chapter entrance: words rise in */
-  .rise { opacity: 0; transform: translateY(40px); filter: blur(8px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1), filter 1s; }
-  .rise.in { opacity: 1; transform: none; filter: none; }
-  .rise.d1 { transition-delay: .08s; } .rise.d2 { transition-delay: .18s; } .rise.d3 { transition-delay: .3s; }
-
-  /* ===== Ribbon ===== */
-  .ribbon-wrap { overflow: hidden; padding: 40px 0; }
-  .ribbon { background: var(--green); color: #03150b; overflow: hidden; padding: 18px 0; transform: rotate(-1.2deg); box-shadow: 0 20px 50px -20px rgba(63,191,107,.6); }
-  .ribbon-track { display: flex; gap: 40px; white-space: nowrap; font-weight: 900; font-size: clamp(20px, 3vw, 34px); text-transform: uppercase; will-change: transform; }
-  .ribbon-track span::after { content: "✦"; margin-left: 40px; opacity: .6; }
-
-  /* ===== Stats ===== */
-  .stats { padding: 30px 0 80px; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 !important; overflow: hidden; }
-  .stat { padding: 40px 16px; text-align: center; border-right: 1px solid var(--line); }
+  /* ================= Stats ================= */
+  .stats { border-block: 1px solid var(--line); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 46px 0 40px; border-right: 1px solid var(--line); padding-left: 28px; }
+  .stat:first-child { padding-left: 0; }
   .stat:last-child { border-right: 0; }
-  .stat b { display: block; font-size: clamp(34px, 4.6vw, 58px); font-weight: 900; letter-spacing: -.03em; background: linear-gradient(180deg, #ffffff, #8a948e); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .stat b i { font-style: normal; color: var(--green); -webkit-text-fill-color: var(--green); }
-  .stat small { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; }
-  @media (max-width: 720px) {
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(52px, 6vw, 100px); line-height: 1; letter-spacing: -.02em; }
+  .stat b sup { font-size: .45em; color: var(--mint); vertical-align: top; position: relative; top: .25em; margin-left: 4px; }
+  .stat small { display: block; margin-top: 14px; font-size: 13px; color: var(--muted); letter-spacing: .04em; }
+  @media (max-width: 820px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 32px 0 28px 20px; }
+    .stat:nth-child(odd) { padding-left: 0; }
     .stat:nth-child(2) { border-right: 0; }
     .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   }
 
-  /* ===== Problems ===== */
-  .problems { padding: 80px 0; }
-  .problems-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: start; }
-  .problems-title { position: sticky; top: 130px; }
-  .problems-title .closer { margin-top: 28px; font-size: 19px; font-weight: 700; }
-  .problems-title .closer span { color: var(--green); }
-  .pains { display: grid; gap: 12px; }
-  .pain {
-    display: flex; gap: 16px; align-items: center; padding: 20px 22px; border-radius: 16px;
-    background: rgba(20,24,22,.8); border: 1px solid var(--line); font-weight: 600; font-size: 16px;
-    opacity: .35; transform: translateX(-14px);
-    transition: opacity .6s, transform .6s, border-color .6s, background .6s;
-  }
-  .pain i { flex: none; width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; background: rgba(63,191,107,.12); color: var(--green); font-style: normal; font-weight: 800; }
-  .pain.is-lit { opacity: 1; transform: none; border-color: rgba(63,191,107,.45); background: linear-gradient(90deg, rgba(63,191,107,.14), rgba(20,24,22,.85) 60%); }
+  /* ================= Story (pinned) ================= */
+  .story { padding: clamp(100px, 13vw, 180px) 0; }
+  .story-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: clamp(50px, 7vw, 100px); }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 120px); align-items: start; }
+  .story-media { position: sticky; top: 110px; height: calc(100vh - 150px); max-height: 820px; border-radius: 22px; overflow: hidden; background: var(--bg-2); }
+  .story-media figure { position: absolute; inset: 0; clip-path: inset(100% 0 0 0); transition: clip-path 1.1s var(--ease); }
+  .story-media figure.is-on { clip-path: inset(0 0 0 0); }
+  .story-media figure.is-past { clip-path: inset(0 0 0 0); }
+  .story-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 1.6s var(--ease); }
+  .story-media figure.is-on img { transform: scale(1); }
+  .story-media .counter { position: absolute; left: 22px; bottom: 20px; z-index: 3; font-size: 12px; letter-spacing: .22em; color: var(--ivory); font-variant-numeric: tabular-nums; mix-blend-mode: difference; }
+  .story-steps { display: grid; }
+  .step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; border-top: 1px solid var(--line); }
+  .step:first-child { border-top: 0; }
+  .step .num { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--mint); }
+  .step h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 4.2vw, 68px); line-height: 1; letter-spacing: -.02em; margin: 14px 0 22px; }
+  .step p { color: var(--ivory-2); font-weight: 300; max-width: 42ch; font-size: 18px; }
+  .step .step-img { display: none; }
   @media (max-width: 900px) {
-    .problems-grid { grid-template-columns: 1fr; gap: 32px; }
+    .story-grid { grid-template-columns: 1fr; }
+    .story-media { display: none; }
+    .step { min-height: 0; padding: 34px 0 44px; }
+    .step .step-img { display: block; border-radius: 18px; overflow: hidden; aspect-ratio: 4/4.4; margin-bottom: 26px; }
+    .step .step-img img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  /* ================= Services ================= */
+  .services { padding: clamp(100px, 12vw, 170px) 0; background: var(--bg-1); border-block: 1px solid var(--line); }
+  .services-head { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; margin-bottom: 70px; }
+  .svc-list { border-top: 1px solid var(--line); }
+  .svc-row {
+    position: relative; display: grid; grid-template-columns: 56px 176px 1.05fr 1fr 50px; gap: 30px; align-items: center;
+    padding: 40px 0; border-bottom: 1px solid var(--line); cursor: default;
+  }
+  .svc-row::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(31,122,77,.18), transparent 70%); opacity: 0; transition: opacity .6s var(--ease); pointer-events: none; }
+  .svc-row:hover::before { opacity: 1; }
+  .svc-row .n { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--muted); transition: color .5s; }
+  .svc-row h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 3.6vw, 58px); line-height: 1; letter-spacing: -.02em; transition: transform .6s var(--ease); }
+  .svc-row p { color: var(--ivory-2); font-weight: 300; font-size: 16px; max-width: 46ch; }
+  .svc-row .tag { display: block; margin-top: 10px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .svc-row .go { justify-self: end; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; transition: background .5s var(--ease), border-color .5s, transform .6s var(--ease); }
+  .svc-row .go svg { width: 16px; height: 16px; }
+  .svc-row:hover .n { color: var(--mint); }
+  .svc-row:hover h3 { transform: translateX(14px); }
+  .svc-row:hover .go { background: var(--ivory); color: var(--bg); border-color: var(--ivory); transform: rotate(-45deg); }
+  .svc-row .n { order: -1; }
+  .svc-row .svc-img { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
+  .svc-row .svc-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.75) brightness(.62); transform: scale(1.02); transition: filter .7s var(--ease), transform 1s var(--ease); }
+  .svc-row:hover .svc-img img { filter: none; transform: scale(1.1); }
+  @media (max-width: 900px) {
+    .services-head { grid-template-columns: 1fr; margin-bottom: 40px; }
+    .svc-row { grid-template-columns: 1fr; gap: 12px; padding: 30px 0 36px; }
+    .svc-row .n { order: 0; }
+    .svc-row .go { display: none; }
+    .svc-row .svc-img { border-radius: 16px; aspect-ratio: 16/11; margin-bottom: 10px; }
+    .svc-row .svc-img img { filter: none; transform: none; }
+  }
+  @media (hover: none) { .svc-row .svc-img img { filter: none; } }
+
+  /* ================= Problems ================= */
+  .problems { padding: clamp(100px, 13vw, 180px) 0; }
+  .problems-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
+  .problems-title { position: sticky; top: 130px; }
+  .problems-title .lead { margin-top: 26px; }
+  .pain-list { list-style: none; }
+  .pain {
+    position: relative; display: flex; align-items: baseline; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--line);
+    font-family: var(--serif); font-size: clamp(26px, 2.6vw, 42px); line-height: 1.1; letter-spacing: -.01em;
+  }
+  .pain small { flex: none; width: 30px; font-family: var(--sans); font-size: 12px; letter-spacing: .1em; color: var(--muted); }
+  .pain .t { position: relative; }
+  .pain .t::after {
+    content: ""; position: absolute; left: -4px; right: -4px; top: 55%; height: 2px; background: var(--mint);
+    transform: scaleX(var(--s, 0)); transform-origin: left; box-shadow: 0 0 14px rgba(143,220,174,.6);
+  }
+  .pain .t { transition: color .4s; }
+  .pain.is-done .t { color: var(--muted); }
+  .problems-close { margin-top: 56px; }
+  .problems-close .h-md em { color: var(--mint); }
+  @media (max-width: 900px) {
+    .problems-grid { grid-template-columns: 1fr; }
     .problems-title { position: relative; top: 0; }
   }
 
-  /* ===== Services: pinned horizontal scroll (desktop) ===== */
-  .svc-pin { height: 100vh; }
-  .svc-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding-top: var(--header); }
-  .svc-head h2 { font-size: clamp(30px, 3.6vw, 50px); }
-  .svc-head { margin: 0 7vw 34px; max-width: 760px; text-shadow: 0 2px 30px rgba(0,0,0,.6); }
-  .svc-track { display: flex; gap: 26px; padding: 0 7vw; will-change: transform; }
-  .svc {
-    position: relative; overflow: hidden; flex: none; width: min(460px, 70vw); min-height: 340px;
-    border-radius: 26px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
-    background: rgba(12,15,14,.8); border: 1px solid var(--line);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 40px 80px -40px rgba(0,0,0,.9);
-  }
-  @media (min-width: 901px) { .svc { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); } }
-  .svc::after { content: ""; position: absolute; right: -70px; top: -70px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(closest-side, rgba(63,191,107,.22), transparent); pointer-events: none; }
-  .svc .n { font-size: 56px; font-weight: 900; letter-spacing: -.04em; background: linear-gradient(180deg, #e9fff1, #3fbf6b 60%, #1f6b3b); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .svc h3 { font-size: 30px; }
-  .svc p { color: var(--muted); margin-top: 12px; font-size: 15.5px; }
-  .svc .tag { align-self: flex-start; font-size: 12px; font-weight: 700; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; }
-  .svc-hint { position: absolute; right: 7vw; bottom: 34px; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-  @media (max-width: 900px) {
-    .svc-pin { height: auto; }
-    .svc-stage { position: relative; height: auto; overflow: visible; padding: 80px 0; }
-    .svc-head { margin: 0 16px 28px; }
-    .svc-head h2 { font-size: clamp(30px, 8.6vw, 40px); }
-    .svc-track { flex-direction: column; transform: none !important; padding: 0 16px; gap: 16px; }
-    .svc { width: 100%; min-height: 0; padding: 28px; }
-    .svc-hint { display: none; }
-  }
-
-  /* ===== How it works ===== */
-  .how { padding: 80px 0; }
-  .timeline { position: relative; margin-top: 56px; max-width: 760px; margin-left: auto; margin-right: auto; }
-  .timeline::before { content: ""; position: absolute; left: 22px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.1); }
-  .timeline-line { position: absolute; left: 22px; top: 0; bottom: 0; width: 2px; transform-origin: top; transform: scaleY(0); background: linear-gradient(var(--green), #bff5d0); box-shadow: 0 0 16px var(--green-glow); }
-  .step { position: relative; padding: 0 0 52px 76px; }
-  .step:last-child { padding-bottom: 0; }
-  .step .dot { position: absolute; left: 8px; top: 2px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 900; color: #03150b; background: linear-gradient(180deg, #e9fff1, #3fbf6b 55%, #2a8a4c); box-shadow: 0 0 0 6px rgba(10,12,11,.9), 0 0 20px var(--green-glow); }
-  .step h3 { font-size: 26px; }
-  .step p { color: var(--muted); margin-top: 10px; font-size: 16px; max-width: 52ch; }
-
-  /* ===== About ===== */
-  .about { padding: 80px 0; }
-  .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
-  .about-photo { border-radius: 24px; overflow: hidden; aspect-ratio: 4/5; position: relative; }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.14); will-change: transform; }
-  .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(63,191,107,.2), transparent 50%); }
-  .about p { color: var(--muted); margin-top: 18px; }
-  .about p strong { color: var(--ink); }
-  .principles { list-style: none; margin-top: 30px; display: grid; gap: 16px; }
-  .principles li { display: flex; gap: 14px; align-items: flex-start; }
-  .principles li::before { content: ""; flex: none; margin-top: 7px; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(180deg, #e9fff1, #3fbf6b); box-shadow: 0 0 10px var(--green-glow); }
-  .principles b { display: block; font-size: 16px; }
+  /* ================= About ================= */
+  .about { padding: clamp(100px, 12vw, 170px) 0; background: var(--bg-1); border-block: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 120px); align-items: center; }
+  .about-photo { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4/5; }
+  .about-photo img { width: 100%; height: 118%; object-fit: cover; position: absolute; top: -9%; left: 0; }
+  .about-photo .cap { position: absolute; left: 18px; bottom: 16px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ivory); text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .about-copy p { color: var(--ivory-2); font-weight: 300; margin-top: 22px; font-size: 17px; max-width: 54ch; }
+  .about-copy p strong { color: var(--ivory); font-weight: 500; }
+  .principles { margin-top: 44px; border-top: 1px solid var(--line); }
+  .principles li { list-style: none; display: grid; grid-template-columns: 34px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .principles li i { font-family: var(--serif); font-style: italic; color: var(--mint); font-size: 20px; line-height: 1.2; }
+  .principles b { display: block; font-weight: 500; font-size: 17px; }
   .principles span { color: var(--muted); font-size: 15px; }
-  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } .about-photo { aspect-ratio: 4/3; } }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } .about-photo { aspect-ratio: 4/3.6; } }
 
-  /* ===== Areas ===== */
-  .areas { padding: 80px 0; }
-  .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
-  .chip { padding: 13px 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(20,24,22,.85); font-weight: 600; font-size: 14px; opacity: 0; transform: translateY(16px) scale(.96); transition: opacity .6s, transform .6s, border-color .3s; }
-  .chip.in { opacity: 1; transform: none; }
-  .chip:hover { border-color: rgba(63,191,107,.6); }
-  .chip::before { content: "📍 "; }
-  .addr { margin-top: 36px; text-align: center; color: var(--muted); font-size: 15px; }
-  .addr strong { color: var(--ink); }
+  /* ================= Areas ================= */
+  .areas { padding: clamp(100px, 12vw, 160px) 0 clamp(90px, 10vw, 140px); overflow: hidden; }
+  .areas-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 60px; }
+  .marquee { display: flex; overflow: hidden; border-block: 1px solid var(--line); padding: 26px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee + .marquee { border-top: 0; }
+  .marquee-track { display: flex; flex: none; gap: 56px; padding-right: 56px; animation: marquee 48s linear infinite; }
+  .marquee.rev .marquee-track { animation-direction: reverse; animation-duration: 56s; }
+  .marquee-track span { font-family: var(--serif); font-size: clamp(40px, 5.4vw, 88px); line-height: 1; white-space: nowrap; display: inline-flex; align-items: center; gap: 56px; }
+  .marquee-track span::after { content: "✦"; font-size: .32em; color: var(--mint); }
+  .marquee.rev .marquee-track span { font-style: italic; color: var(--ivory-2); }
+  @keyframes marquee { to { transform: translateX(-100%); } }
+  .areas-addr { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 14px 40px; justify-content: space-between; color: var(--ivory-2); font-size: 15px; }
 
-  /* ===== Contact ===== */
-  .contact { padding: 80px 0 120px; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
-  .big-phone { display: block; margin-top: 30px; font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; background: linear-gradient(180deg, #e9fff1, #3fbf6b 55%, #2a8a4c); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .contact-info .sub { color: var(--muted); margin-top: 6px; }
-  .hours { margin-top: 28px; display: grid; gap: 10px; color: var(--muted); font-size: 15px; }
-  .hours b { color: var(--ink); }
-  form.lead-form { display: grid; gap: 16px; background: rgba(8,10,9,.6); border: 1px solid var(--line); border-radius: 22px; padding: 30px; }
-  .field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--muted); }
-  .field label em { color: var(--green); font-style: normal; }
-  .field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; outline: none; transition: border-color .2s, box-shadow .2s; }
-  .field textarea { min-height: 120px; resize: vertical; }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(63,191,107,.15); }
-  .field select option { background: var(--bg); }
-  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-note { font-size: 13px; color: var(--muted); }
-  .form-status { font-size: 15px; font-weight: 600; min-height: 1.4em; }
-  .form-status.ok { color: var(--green); }
-  .form-status.err { color: #ff8a8a; }
-  form.lead-form .btn { width: 100%; }
-  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
-  @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; } form.lead-form { padding: 20px; } }
-
-  /* ===== Footer ===== */
-  footer { border-top: 1px solid var(--line); padding: 44px 0 110px; color: var(--muted); font-size: 14px; background: var(--bg); }
-  .foot { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; }
-  .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  footer a:hover { color: var(--ink); }
-
-  .call-bar { display: none; }
-
-  /* ===== Phones ===== */
-  @media (max-width: 900px) {
-    .film-shade { background: linear-gradient(0deg, rgba(8,9,10,.92) 0%, rgba(8,9,10,.55) 45%, rgba(8,9,10,.3) 75%, rgba(8,9,10,.55) 100%); }
-    .chapter { align-items: flex-end; padding: 90px 0 130px; }
-    .chapter h1, .chapter h2 { font-size: clamp(42px, 12.5vw, 60px); }
-    .chapter p { font-size: 16px; }
-    .chapter-ctas .btn { flex: 1 1 auto; }
-    .scroll-cue { display: none; }
-    h2 { font-size: clamp(30px, 8.6vw, 40px); }
-    .glass { border-radius: 24px; background: rgba(10,12,11,.86); }
-    .stats { padding: 10px 0 50px; }
-    .stat { padding: 28px 12px; }
-    .problems, .how, .about, .areas { padding: 50px 0; }
-    .contact { padding: 50px 0 90px; }
-    .step { padding-left: 66px; }
-    .call-bar {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
-      padding: 10px; border-radius: 20px; background: rgba(14,17,16,.92); border: 1px solid var(--line);
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,.7);
-    }
-    .call-bar .btn { min-height: 50px; padding: 12px 16px; font-size: 14px; }
+  /* ================= Contact ================= */
+  .contact { position: relative; padding: clamp(100px, 12vw, 170px) 0; overflow: hidden; }
+  .contact-bg { position: absolute; inset: 0; z-index: 0; }
+  .contact-bg video, .contact-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .contact-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,9,8,.92) 0%, rgba(7,9,8,.78) 45%, rgba(7,9,8,.55) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 25%), linear-gradient(180deg, var(--bg) 0%, transparent 20%); }
+  .contact .wrap { position: relative; z-index: 1; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
+  .contact-info .lead { margin-top: 26px; }
+  .contact-phone { display: inline-block; margin-top: 40px; font-family: var(--serif); font-size: clamp(40px, 4.6vw, 72px); line-height: 1; letter-spacing: -.01em; }
+  .contact-phone:hover { color: var(--mint); }
+  .contact-meta { margin-top: 18px; color: var(--muted); font-size: 14px; }
+  .contact-list { margin-top: 40px; display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 460px; }
+  .contact-list div { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .contact-list span { color: var(--muted); }
+  .contact-list b { font-weight: 400; text-align: right; }
+  form.lead-form {
+    background: rgba(11,14,12,.72); border: 1px solid var(--line); border-radius: 24px; padding: clamp(24px, 3vw, 44px);
+    backdrop-filter: blur(18px) saturate(130%); -webkit-backdrop-filter: blur(18px) saturate(130%);
+    display: grid; gap: 22px;
   }
-  @media (max-width: 480px) { .wrap { padding: 0 14px; } .lead { font-size: 15px; } }
+  .form-title { font-family: var(--serif); font-size: 30px; line-height: 1.1; }
+  .form-sub { color: var(--muted); font-size: 14px; margin-top: -12px; }
+  .field { position: relative; }
+  .field input, .field select, .field textarea {
+    width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line-2); border-radius: 0;
+    padding: 26px 0 12px; color: var(--ivory); font: inherit; font-size: 16px; outline: none; transition: border-color .4s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field select { cursor: pointer; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23ece8de' stroke-width='1.4' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 4px center; }
+  .field select option { background: var(--bg-1); color: var(--ivory); }
+  .field label { position: absolute; left: 0; top: 26px; font-size: 16px; color: var(--muted); pointer-events: none; transition: transform .4s var(--ease), color .4s, font-size .4s; transform-origin: left; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--mint); }
+  .field input:focus + label, .field input:not(:placeholder-shown) + label,
+  .field textarea:focus + label, .field textarea:not(:placeholder-shown) + label,
+  .field select:focus + label, .field select.has-value + label { transform: translateY(-22px) scale(.78); color: var(--mint); }
+  .field label em { font-style: normal; color: var(--mint); }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .form-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 6px; }
+  .form-note { font-size: 13px; color: var(--muted); }
+  .form-status { font-size: 14px; min-height: 1.3em; }
+  .form-status.ok { color: var(--mint); }
+  .form-status.err { color: #f2a7a0; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; gap: 22px; } }
 
-  /* ===== Reveal on scroll ===== */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
+  /* ================= Footer ================= */
+  .footer { padding: 80px 0 40px; border-top: 1px solid var(--line); }
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  .footer h4 { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 16px; }
+  .footer-top a, .footer-top p { display: block; color: var(--ivory-2); font-size: 15px; margin-bottom: 8px; }
+  .footer-top a.brand { display: flex; color: var(--ivory); }
+  .footer-word { margin-top: 80px; font-family: var(--serif); font-size: clamp(64px, 17.4vw, 300px); line-height: .82; letter-spacing: -.03em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(236,232,222,.28); user-select: none; }
+  .footer-bot { margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font-size: 13px; color: var(--muted); }
+  @media (max-width: 820px) { .footer-top { grid-template-columns: 1fr; } }
+
+  /* ================= Mobile call bar ================= */
+  .callbar { display: none; }
+  @media (max-width: 900px) {
+    .callbar {
+      position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 70;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; border-radius: 999px;
+      background: rgba(11,14,12,.82); border: 1px solid var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      transform: translateY(140%); transition: transform .6s var(--ease);
+    }
+    .callbar.is-on { transform: none; }
+    .callbar a { height: 48px; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 500; }
+    .callbar .c1 { background: var(--ivory); color: #0b0e0c; }
+    .callbar .c2 { border: 1px solid var(--line-2); }
+    .footer { padding-bottom: 110px; }
+  }
+
+  /* ================= Phones: hero ================= */
+  @media (max-width: 900px) {
+    .header-inner { height: 70px; }
+    .brand b { font-size: 23px; }
+    .hero-media video, .hero-media img { object-position: 74% 50%; }
+    .hero-media::after { background: linear-gradient(0deg, rgba(7,9,8,.95) 0%, rgba(7,9,8,.7) 42%, rgba(7,9,8,.15) 72%, rgba(7,9,8,.5) 100%); }
+    .hero h1 { font-size: clamp(50px, 14vw, 74px); }
+    .hero-sub { margin-top: 22px; gap: 24px; }
+    .hero-ctas { width: 100%; }
+    .hero-ctas .btn { flex: 1 1 100%; justify-content: space-between; }
+    .hero-facts { gap: 8px 22px; margin-top: 26px; }
+    .hero-facts .hero-scroll { display: none; }
+    .manifesto-foot { grid-template-columns: 1fr; margin-top: 44px; gap: 18px; }
+    .story-head, .areas-head { flex-direction: column; align-items: flex-start; }
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .rise, .reveal, .chip, .pain { opacity: 1; transform: none; filter: none; }
-    .svc-pin { height: auto; }
-    .svc-stage { position: relative; height: auto; overflow: visible; padding: 80px 0; }
-    .svc-track { flex-direction: column; transform: none !important; }
-    .svc { width: 100%; min-height: 0; }
-    .timeline-line { transform: none; }
-    .problems-title { position: relative; top: 0; }
-    .about-photo img { transform: none; }
-    .film-progress { display: none; }
+    .marquee-track { animation: none; }
+    .story-media figure, .story-media img, .btn::before, .btn .ico svg { transition: none; }
   }
 </style>
+<script>
+  // Show the intro only on a fresh visit, never for reduced motion
+  (function () {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var seen = false;
+    try { seen = sessionStorage.getItem("pb-intro") === "1"; } catch (e) {}
+    if (reduce || seen) document.documentElement.classList.add("no-loader");
+  })();
+</script>
 </head>
 <body>
 
-<canvas class="film" id="film" aria-hidden="true"></canvas>
-<div class="film-shade" aria-hidden="true"></div>
-<div class="film-grain" aria-hidden="true"></div>
-<div class="film-progress" id="filmProgress" aria-hidden="true"></div>
+<!-- Intro -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-mark"><span>Pure</span> <span class="it">Brokers</span></div>
+    <div class="loader-bar"><i id="loaderBar"></i></div>
+    <div class="loader-count" id="loaderCount">000</div>
+  </div>
+</div>
 
-<header class="top">
-  <div class="wrap top-inner">
+<!-- Header -->
+<header class="header" id="header">
+  <div class="wrap header-inner">
     <a href="#top" class="brand" aria-label="Pure Brokers home">
-      <img src="img/logo.png" alt="" width="40" height="40">
-      <span>PURE BROKERS</span>
+      <img src="img/logo.png" alt="" width="34" height="34">
+      <b>Pure Brokers</b>
     </a>
     <nav class="nav" aria-label="Main">
-      <a class="hide-sm" href="#services">Services</a>
-      <a class="hide-sm" href="#about">About</a>
-      <a class="hide-sm" href="#areas">Areas</a>
-      <a href="#contact">Contact</a>
-      <a class="btn btn-primary" href="#contact">Free Consultation</a>
+      <a class="link-u opt" href="#how">How it works</a>
+      <a class="link-u opt" href="#services">Services</a>
+      <a class="link-u opt" href="#about">About</a>
+      <a class="link-u nav-phone" href="tel:+15615670239">(561) 567-0239</a>
+      <a class="btn btn-primary btn-sm magnetic" href="#contact">
+        Free consultation
+        <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="menu-call" href="tel:+15615670239">Call us</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- Opening: three full-screen chapters over the film -->
-  <section class="chapter" aria-label="Introduction">
-    <div class="wrap">
-      <div class="chapter-copy">
-        <span class="eyebrow rise">Boca Raton · Serving all of Florida</span>
-        <h1 class="rise d1">Your dream car.</h1>
-        <p class="rise d2">Hassle and headache free. We find the car, the deal, and the insurance, all in one place.</p>
-        <div class="chapter-ctas rise d3">
-          <a class="btn btn-primary" href="tel:+15615670239">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-            Call (561) 567-0239
+  <!-- 1. HERO -->
+  <section class="hero" id="hero" aria-label="Introduction">
+    <div class="hero-media" id="heroMedia">
+      <img src="assets/hero-2400.webp" srcset="assets/hero-1200.webp 1200w, assets/hero-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high">
+      <video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true" poster="assets/hero-2400.webp">
+        <source src="assets/hero-1080.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="wrap hero-content" id="heroContent">
+      <span class="label">Boca Raton · Serving all of Florida &amp; nationwide</span>
+      <h1 class="h-xl" id="heroTitle">
+        <span class="line">Your dream car.</span>
+        <span class="line"><em class="accent">The best rate.</em></span>
+        <span class="line">One place.</span>
+      </h1>
+      <div class="hero-sub">
+        <p class="lead">Hassle and headache free. We find the car, secure the lease or finance deal, and lock in a low insurance rate, without the dealership runaround.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary magnetic" href="#contact">
+            Book a free consultation
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
           </a>
-          <a class="btn btn-steel" href="sms:+15615670239">Text us now</a>
+          <a class="btn btn-ghost magnetic" href="tel:+15615670239">
+            Call (561) 567-0239
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 11.3v2a1.3 1.3 0 0 1-1.5 1.3A13 13 0 0 1 1.4 3 1.3 1.3 0 0 1 2.7 1.5h2a1.3 1.3 0 0 1 1.3 1.1c.1.6.3 1.2.5 1.8a1.3 1.3 0 0 1-.3 1.4l-.8.8a10.5 10.5 0 0 0 4 4l.8-.8a1.3 1.3 0 0 1 1.4-.3c.6.2 1.2.4 1.8.5a1.3 1.3 0 0 1 1.1 1.3z"/></svg><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 11.3v2a1.3 1.3 0 0 1-1.5 1.3A13 13 0 0 1 1.4 3 1.3 1.3 0 0 1 2.7 1.5h2a1.3 1.3 0 0 1 1.3 1.1c.1.6.3 1.2.5 1.8a1.3 1.3 0 0 1-.3 1.4l-.8.8a10.5 10.5 0 0 0 4 4l.8-.8a1.3 1.3 0 0 1 1.4-.3c.6.2 1.2.4 1.8.5a1.3 1.3 0 0 1 1.1 1.3z"/></svg></span>
+          </a>
         </div>
-        <div class="scroll-cue rise d3" aria-hidden="true">Scroll</div>
+      </div>
+      <div class="hero-facts">
+        <span>500+ dealer network</span>
+        <span>Same-day home delivery</span>
+        <span>Available 24/7</span>
+        <span class="hero-scroll">Scroll to explore</span>
       </div>
     </div>
   </section>
 
-  <section class="chapter" aria-label="Insurance">
+  <!-- 2. MANIFESTO -->
+  <section class="manifesto" aria-label="Our idea">
     <div class="wrap">
-      <div class="chapter-copy">
-        <span class="eyebrow rise">The deal and the policy</span>
-        <h2 class="rise d1"><em>Best</em> insurance rate.</h2>
-        <p class="rise d2">We shop 500+ dealers and the insurance market, so your monthly budget stays intact.</p>
+      <span class="label">Why Pure Brokers</span>
+      <p class="manifesto-text" id="manifesto">Pure Brokers started with a simple idea: <em>what if buying a car was actually enjoyable?</em> We work for you, not the dealers.</p>
+      <div class="manifesto-foot">
+        <p>Our fee is transparent, and so is every offer we bring. No hidden fees, no pressure tactics, no fine print.</p>
+        <p>Insurance isn't an afterthought. We tackle it upfront, so your monthly budget stays intact from day one.</p>
       </div>
     </div>
   </section>
 
-  <section class="chapter" aria-label="One place">
-    <div class="wrap">
-      <div class="chapter-copy">
-        <span class="eyebrow rise">One team, one call</span>
-        <h2 class="rise d1">One place. <em>Zero</em> pressure.</h2>
-        <p class="rise d2">Lease, finance, insurance, delivery, and repairs, handled by one team from one call.</p>
-        <div class="chapter-ctas rise d3">
-          <a class="btn btn-primary" href="#contact">Get a free consultation</a>
-          <a class="btn btn-steel" href="#services">See what we do</a>
-        </div>
-      </div>
+  <!-- 3. STATS -->
+  <section class="stats" aria-label="Pure Brokers in numbers">
+    <div class="wrap stats-grid">
+      <div class="stat"><b><span data-count="1000">1,000</span><sup>+</sup></b><small>Locals have chosen Pure Brokers</small></div>
+      <div class="stat"><b><span data-count="500">500</span><sup>+</sup></b><small>Dealers in our nationwide network</small></div>
+      <div class="stat"><b>24/7</b><small>Available whenever you need us</small></div>
+      <div class="stat"><b><span data-count="10">10</span><sup>+</sup></b><small>Years our founder spent inside the industry</small></div>
     </div>
   </section>
 
-  <!-- Ribbon -->
-  <div class="ribbon-wrap" aria-hidden="true"><div class="ribbon">
-    <div class="ribbon-track" id="ribbonTrack">
-      <span>Best prices &amp; financing</span><span>Home delivery</span><span>Insurance</span><span>Repairs &amp; lease returns</span><span>Best prices &amp; financing</span><span>Home delivery</span><span>Insurance</span><span>Repairs &amp; lease returns</span>
-    </div>
-  </div></div>
-
-  <!-- Stats -->
-  <div class="stats">
+  <!-- 4. HOW IT WORKS (pinned media) -->
+  <section class="story" id="how" aria-label="How it works">
     <div class="wrap">
-      <div class="glass stats-grid">
-        <div class="stat"><b><span data-count="1000">1,000</span><i>+</i></b><small>Locals served</small></div>
-        <div class="stat"><b><span data-count="500">500</span><i>+</i></b><small>Dealers nationwide</small></div>
-        <div class="stat"><b>24<i>/</i>7</b><small>Available</small></div>
-        <div class="stat"><b>FL<i>·</i>US</b><small>Statewide &amp; nationwide</small></div>
+      <div class="story-head">
+        <h2 class="h-lg">Three steps. <em>No drama.</em></h2>
+        <p class="lead">You tell us what you want. We do every phone call, every negotiation and every quote. You show up for the keys.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- Problems -->
-  <section class="problems">
-    <div class="wrap">
-      <div class="glass problems-grid">
-        <div class="problems-title reveal">
-          <span class="eyebrow">Sound familiar?</span>
-          <h2>Car buying shouldn't feel like a fight.</h2>
-          <p class="lead">Most people tell us the same frustrations before they call. We built Pure Brokers around fixing them.</p>
-          <p class="closer">We handle all of it. <span>You just pick the car.</span></p>
+      <div class="story-grid">
+        <div class="story-media" id="storyMedia" aria-hidden="true">
+          <figure class="is-on"><img src="assets/step-1.webp" alt="" loading="lazy"></figure>
+          <figure><img src="assets/step-2.webp" alt="" loading="lazy"></figure>
+          <figure><img src="assets/step-3.webp" alt="" loading="lazy"></figure>
+          <div class="counter" id="storyCounter">01 / 03</div>
         </div>
-        <div class="pains">
-          <div class="pain"><i>1</i>I'm overwhelmed by endless options</div>
-          <div class="pain"><i>2</i>Insurance costs always surprise me</div>
-          <div class="pain"><i>3</i>Bad experiences with dealerships in the past</div>
-          <div class="pain"><i>4</i>Salespeople make me feel rushed</div>
-          <div class="pain"><i>5</i>Lease &amp; finance terms feel like a maze</div>
-          <div class="pain"><i>6</i>My credit isn't perfect</div>
-          <div class="pain"><i>7</i>I'm tired of wasting weekends</div>
-          <div class="pain"><i>8</i>Hidden fees keep popping up</div>
-          <div class="pain"><i>9</i>Insurance companies don't get my needs</div>
-          <div class="pain"><i>10</i>I feel unprepared to negotiate</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services: pinned horizontal scroll on desktop -->
-  <section class="svc-pin" id="services">
-    <div class="svc-stage">
-      <div class="svc-head reveal">
-        <span class="eyebrow">What we do</span>
-        <h2>Everything from the first test drive to the last claim.</h2>
-      </div>
-      <div class="svc-track" id="svcTrack">
-        <article class="svc">
-          <div><div class="n">01</div><h3>Best prices &amp; financing</h3><p>We tap our nationwide dealer network to secure unbeatable leases and financing. No fine print, just real deals.</p></div>
-          <span class="tag">Lease · Finance · Buy</span>
-        </article>
-        <article class="svc">
-          <div><div class="n">02</div><h3>Home delivery</h3><p>Same-day delivery right into your driveway. Documents and vehicle delivered conveniently straight to your home.</p></div>
-          <span class="tag">Same-day available</span>
-        </article>
-        <article class="svc">
-          <div><div class="n">03</div><h3>Insurance</h3><p>Custom, low-rate policies to go with your brand-new car. We shop for the best rate on auto, commercial, and homeowners.</p></div>
-          <span class="tag">Auto · Commercial · Home</span>
-        </article>
-        <article class="svc">
-          <div><div class="n">04</div><h3>Repairs &amp; lease returns</h3><p>Repairs for leased and owned vehicles, plus tints, wraps, and servicing at your convenience. No need for an insurance claim.</p></div>
-          <span class="tag">Tints · Wraps · Service</span>
-        </article>
-      </div>
-      <div class="svc-hint">Keep scrolling →</div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="how">
-    <div class="wrap">
-      <div class="glass">
-        <div class="center reveal">
-          <span class="eyebrow">How it works</span>
-          <h2>Three steps. No drama.</h2>
-        </div>
-        <div class="timeline" id="timeline">
-          <div class="timeline-line" id="timelineLine"></div>
-          <div class="step reveal"><span class="dot">1</span><h3>Tell us what you need</h3><p>Fill out the form or call or text. Tell us the car, the budget, and what's been frustrating you.</p></div>
-          <div class="step reveal"><span class="dot">2</span><h3>We do the legwork</h3><p>We shop our dealer network and insurance options and bring you clear, transparent offers.</p></div>
-          <div class="step reveal"><span class="dot">3</span><h3>Sign and drive</h3><p>Pick your deal. We can deliver the car and documents straight to your driveway.</p></div>
+        <div class="story-steps">
+          <article class="step" data-step="0">
+            <div class="step-img"><img src="assets/step-1-sm.webp" alt="A phone on a kitchen island, ready to call Pure Brokers" loading="lazy"></div>
+            <span class="num">01</span>
+            <h3>Tell us what you need</h3>
+            <p>Fill out the form, call or text. Tell us the car, the budget, and what's been frustrating you.</p>
+          </article>
+          <article class="step" data-step="1">
+            <div class="step-img"><img src="assets/step-2-sm.webp" alt="Lease, finance and insurance offers laid out on a desk" loading="lazy"></div>
+            <span class="num">02</span>
+            <h3>We do the legwork</h3>
+            <p>We shop our 500+ dealer network and the insurance market, then bring you clear, transparent offers side by side.</p>
+          </article>
+          <article class="step" data-step="2">
+            <div class="step-img"><img src="assets/step-3-sm.webp" alt="A new car delivered to a Florida home driveway" loading="lazy"></div>
+            <span class="num">03</span>
+            <h3>Sign and drive</h3>
+            <p>Pick your deal. We can deliver the car and the documents straight to your driveway, often the same day.</p>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="about" id="about">
+  <!-- 5. SERVICES -->
+  <section class="services" id="services" aria-label="Services">
     <div class="wrap">
-      <div class="glass about-grid">
-        <div class="about-photo reveal">
-          <img id="aboutImg" src="img/img3534.jpeg" alt="A Pure Brokers vehicle" loading="lazy">
+      <div class="services-head">
+        <h2 class="h-lg">Everything from the first test drive <em>to the last claim.</em></h2>
+        <p class="lead">One team handles the whole life of your car, so nothing falls between a dealer, a lender and an insurer.</p>
+      </div>
+      <div class="svc-list" id="svcList">
+        <div class="svc-row" data-img="0">
+          <div class="svc-img"><img src="assets/svc-finance.webp" alt="Signing a finance agreement" loading="lazy"></div>
+          <span class="n">01</span>
+          <h3>Best prices &amp; financing</h3>
+          <p>We tap our nationwide dealer network to secure unbeatable leases and financing. No fine print, just real deals.<span class="tag">Lease · Finance · Buy</span></p>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
-        <div class="reveal">
-          <span class="eyebrow">About Pure Brokers</span>
-          <h2>Built by people who've seen the other side.</h2>
-          <p>For over a decade, our founder worked in the trenches of the automotive industry: dealerships, finance offices, and insurance desks. He saw firsthand how buyers get squeezed by hidden fees, confusing terms, pressure tactics, and insurance quotes that feel like punishment.</p>
-          <p>Pure Brokers started as a simple idea: <strong>what if car buying was actually enjoyable?</strong> We don't have a fancy origin story. We have hard-earned relationships with 500+ dealers nationwide and a team that's obsessed with fairness.</p>
-          <ul class="principles">
-            <li><div><b>We work for you, not the dealers.</b><span>Our fee is transparent, and so is every offer we bring.</span></div></li>
-            <li><div><b>South Florida roots, nationwide reach.</b><span>Whether you're in Boca, Miami, or Nebraska, we have the contacts to find your match.</span></div></li>
-            <li><div><b>Insurance isn't an afterthought.</b><span>We tackle it upfront so your monthly budget stays intact.</span></div></li>
-          </ul>
+        <div class="svc-row" data-img="1">
+          <div class="svc-img"><img src="assets/svc-delivery.webp" alt="A car delivered to a home at night" loading="lazy"></div>
+          <span class="n">02</span>
+          <h3>Home delivery</h3>
+          <p>Same-day delivery right into your driveway. Documents and vehicle delivered conveniently straight to your home.<span class="tag">Same-day available</span></p>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+        <div class="svc-row" data-img="2">
+          <div class="svc-img"><img src="assets/svc-insurance.webp" alt="Close-up of a car's headlight with water beading on the paint" loading="lazy"></div>
+          <span class="n">03</span>
+          <h3>Insurance</h3>
+          <p>Custom, low-rate policies to go with your new car. We shop the best rate on auto, commercial and homeowners.<span class="tag">Auto · Commercial · Home</span></p>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </div>
+        <div class="svc-row" data-img="3">
+          <div class="svc-img"><img src="assets/svc-repairs.webp" alt="Paint protection film being applied in a detailing studio" loading="lazy"></div>
+          <span class="n">04</span>
+          <h3>Repairs &amp; lease returns</h3>
+          <p>Repairs for leased and owned vehicles, plus tints, wraps and servicing at your convenience. No insurance claim needed.<span class="tag">Tints · Wraps · Service</span></p>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Areas -->
-  <section class="areas" id="areas">
-    <div class="wrap">
-      <div class="glass center">
-        <div class="reveal">
-          <span class="eyebrow">Areas we serve</span>
-          <h2>Proudly serving South Florida and beyond.</h2>
+  <!-- 6. PROBLEMS -->
+  <section class="problems" aria-label="Problems we solve">
+    <div class="wrap problems-grid">
+      <div class="problems-title">
+        <span class="label">Sound familiar?</span>
+        <h2 class="h-lg" style="margin-top:26px">Car buying shouldn't feel like <em>a fight.</em></h2>
+        <p class="lead">Most people tell us the same frustrations before they call. We built Pure Brokers to cross every one of them off.</p>
+      </div>
+      <div>
+        <ol class="pain-list" id="painList">
+          <li class="pain"><small>01</small><span class="t">I'm overwhelmed by endless options</span></li>
+          <li class="pain"><small>02</small><span class="t">Insurance costs always surprise me</span></li>
+          <li class="pain"><small>03</small><span class="t">Bad experiences with dealerships</span></li>
+          <li class="pain"><small>04</small><span class="t">Salespeople make me feel rushed</span></li>
+          <li class="pain"><small>05</small><span class="t">Lease &amp; finance terms feel like a maze</span></li>
+          <li class="pain"><small>06</small><span class="t">My credit isn't perfect</span></li>
+          <li class="pain"><small>07</small><span class="t">I'm tired of wasting weekends</span></li>
+          <li class="pain"><small>08</small><span class="t">Hidden fees keep popping up</span></li>
+          <li class="pain"><small>09</small><span class="t">Insurers don't get my needs</span></li>
+          <li class="pain"><small>10</small><span class="t">I feel unprepared to negotiate</span></li>
+        </ol>
+        <div class="problems-close">
+          <p class="h-md">We handle all of it. <em>You just pick the car.</em></p>
         </div>
-        <div class="chips" id="chips">
-          <span class="chip">Boca Raton</span>
-          <span class="chip">Miami Metro</span>
-          <span class="chip">Miami</span>
-          <span class="chip">Broward County</span>
-          <span class="chip">Miami-Dade County</span>
-          <span class="chip">Palm Beach County</span>
-          <span class="chip">Fort Lauderdale</span>
-          <span class="chip">Hollywood</span>
-          <span class="chip">Pompano Beach</span>
-          <span class="chip">West Palm Beach</span>
-        </div>
-        <p class="addr"><strong>Office:</strong> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="glass contact-grid">
-        <div class="contact-info reveal">
-          <span class="eyebrow">Free consultation</span>
-          <h2>Let's make it happen.</h2>
-          <p class="lead">Thanks for stopping by. Fill out the form and the Pure Brokers team will take it from there. Tell us if you need help leasing, buying, repairing, insuring, or accessorizing your vehicle.</p>
-          <a class="big-phone" href="tel:+15615670239">(561) 567-0239</a>
-          <p class="sub">Call or text for new inquiries</p>
-          <div class="hours">
-            <div><b>Hours:</b> Available 24/7</div>
-            <div><b>Office:</b> 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</div>
-          </div>
-        </div>
+  <!-- 7. ABOUT -->
+  <section class="about" id="about" aria-label="About Pure Brokers">
+    <div class="wrap about-grid">
+      <div class="about-photo" id="aboutPhoto">
+        <img src="assets/about.webp" alt="A car delivered by Pure Brokers" loading="lazy">
+        <span class="cap">Delivered by Pure Brokers</span>
+      </div>
+      <div class="about-copy">
+        <span class="label">About us</span>
+        <h2 class="h-lg" style="margin-top:26px">Built by people who've seen <em>the other side.</em></h2>
+        <p>For over a decade, our founder worked in the trenches of the automotive industry: dealerships, finance offices and insurance desks. He saw firsthand how buyers get squeezed by hidden fees, confusing terms, pressure tactics, and insurance quotes that feel like punishment.</p>
+        <p>We don't have a fancy origin story. <strong>We have hard-earned relationships with 500+ dealers nationwide</strong> and a team that's obsessed with fairness. Our job is to turn "I need a car" into a done deal, without the drama.</p>
+        <ul class="principles">
+          <li><i>i.</i><div><b>We work for you, not the dealers.</b><span>Our fee is transparent, and so is every offer we bring.</span></div></li>
+          <li><i>ii.</i><div><b>South Florida roots, nationwide reach.</b><span>Boca, Miami or Nebraska, we have the contacts to find your match.</span></div></li>
+          <li><i>iii.</i><div><b>Insurance isn't an afterthought.</b><span>We tackle it upfront, so your monthly budget stays intact.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <form class="lead-form reveal" id="lead" novalidate>
-          <div class="row-2">
-            <div class="field">
-              <label for="name">Name <em>*</em></label>
-              <input id="name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="contact">Email or cell <em>*</em></label>
-              <input id="contact" name="contact" autocomplete="email" inputmode="email" required>
-            </div>
+  <!-- 8. AREAS -->
+  <section class="areas" id="areas" aria-label="Areas we serve">
+    <div class="wrap areas-head">
+      <div>
+        <span class="label">Areas we serve</span>
+        <h2 class="h-lg" style="margin-top:26px">South Florida roots. <em>Nationwide reach.</em></h2>
+      </div>
+      <p class="lead">Headquartered in Boca Raton. We proudly serve the automotive needs of the entire state of Florida, and clients nationwide.</p>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span>Boca Raton</span><span>Miami</span><span>Fort Lauderdale</span><span>West Palm Beach</span><span>Hollywood</span><span>Pompano Beach</span></div>
+      <div class="marquee-track"><span>Boca Raton</span><span>Miami</span><span>Fort Lauderdale</span><span>West Palm Beach</span><span>Hollywood</span><span>Pompano Beach</span></div>
+    </div>
+    <div class="marquee rev" aria-hidden="true">
+      <div class="marquee-track"><span>Palm Beach County</span><span>Broward County</span><span>Miami-Dade County</span><span>Miami Metro</span></div>
+      <div class="marquee-track"><span>Palm Beach County</span><span>Broward County</span><span>Miami-Dade County</span><span>Miami Metro</span></div>
+    </div>
+    <div class="wrap">
+      <p class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Areas served: Boca Raton, Miami Metropolitan Area, Miami, Broward County, Miami-Dade County, Palm Beach County, Fort Lauderdale, Hollywood, Pompano Beach, West Palm Beach.</p>
+      <div class="areas-addr">
+        <span>Office · 3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</span>
+        <a class="link-u" href="https://maps.google.com/?q=3200+N+Federal+Hwy+%23224,+Boca+Raton,+FL+33431" target="_blank" rel="noopener">Get directions →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONTACT -->
+  <section class="contact" id="contact" aria-label="Contact">
+    <div class="contact-bg" aria-hidden="true">
+      <video id="contactVideo" muted loop playsinline preload="none" poster="assets/night-poster.webp">
+        <source src="assets/night-720.mp4" type="video/mp4" media="(max-width: 900px)">
+        <source src="assets/night-1080.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="label">Free consultation</span>
+        <h2 class="h-lg" style="margin-top:26px">Let's make it <em>happen.</em></h2>
+        <p class="lead">Tell us if you need help leasing, buying, repairing, insuring or accessorizing your vehicle. We've streamlined the process to save you money, time and stress.</p>
+        <a class="contact-phone" href="tel:+15615670239">(561) 567-0239</a>
+        <p class="contact-meta">Call or text for new inquiries · Available 24/7</p>
+        <div class="contact-list">
+          <div><span>Office</span><b>3200 N. Federal Hwy, Suite 224<br>Boca Raton, FL 33431</b></div>
+          <div><span>Hours</span><b>24 hours, 7 days</b></div>
+          <div><span>Serving</span><b>All of Florida &amp; nationwide</b></div>
+        </div>
+      </div>
+
+      <form class="lead-form" id="lead" novalidate>
+        <div>
+          <p class="form-title">Schedule your free consultation</p>
+          <p class="form-sub" style="margin-top:6px">We're available 24/7. The Pure Brokers team will make it happen.</p>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <input id="name" name="name" autocomplete="name" placeholder=" " required>
+            <label for="name">Name <em>*</em></label>
           </div>
           <div class="field">
-            <label for="brand">Brand <em>*</em></label>
-            <select id="brand" name="brand" required>
-              <option value="">Select one</option>
-              <option>Acura</option><option>Audi</option><option>BMW</option><option>Ferrari</option>
-              <option>Honda</option><option>Hyundai</option><option>Infiniti</option><option>Lamborghini</option>
-              <option>Land Rover</option><option>Lexus</option><option>Mazda</option><option>Mercedes-Benz</option>
-              <option>Mitsubishi</option><option>Nissan</option><option>Rolls-Royce</option><option>Saab</option>
-              <option>Subaru</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option>
-              <option>Other</option>
-            </select>
+            <input id="contact-field" name="contact" autocomplete="email" placeholder=" " required>
+            <label for="contact-field">Email or cell <em>*</em></label>
           </div>
-          <div class="field">
-            <label for="details">Comments / details on your request <em>*</em></label>
-            <textarea id="details" name="details" placeholder="Leasing, buying, repairing, insuring, or accessorizing? Tell us what you're looking for." required></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Submit request</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <p class="form-note">Prefer to talk? Call or text (561) 567-0239.</p>
-        </form>
-      </div>
+        </div>
+        <div class="field">
+          <select id="brand" name="brand" required>
+            <option value="" disabled selected hidden></option>
+            <option>Acura</option><option>Audi</option><option>BMW</option><option>Ferrari</option>
+            <option>Honda</option><option>Hyundai</option><option>Infiniti</option><option>Lamborghini</option>
+            <option>Land Rover</option><option>Lexus</option><option>Mazda</option><option>Mercedes-Benz</option>
+            <option>Mitsubishi</option><option>Nissan</option><option>Rolls-Royce</option><option>Saab</option>
+            <option>Subaru</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option>
+            <option>Other</option>
+          </select>
+          <label for="brand">Brand you're interested in <em>*</em></label>
+        </div>
+        <div class="field">
+          <textarea id="details" name="details" placeholder=" " required></textarea>
+          <label for="details">What do you need? Lease, buy, repair, insure… <em>*</em></label>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-primary magnetic" type="submit">
+            Send request
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </button>
+          <p class="form-note">Prefer to talk? <a class="link-u" href="tel:+15615670239">(561) 567-0239</a></p>
+        </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap foot">
-    <a href="#top" class="brand" style="color:var(--ink)">
-      <img src="img/logo.png" alt="" width="40" height="40">
-      <span>PURE BROKERS LLC</span>
-    </a>
-    <div>3200 N. Federal Highway, Suite 224, Boca Raton, FL 33431</div>
-    <div class="foot-links">
-      <a href="tel:+15615670239">(561) 567-0239</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#top" class="brand" style="margin-bottom:18px"><img src="img/logo.png" alt="" width="34" height="34"><b>Pure Brokers</b></a>
+        <p style="max-width:36ch">Your dream car and the best insurance rate, all obtained in one place, hassle and headache free.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>Pure Brokers LLC</p>
+        <p>3200 N. Federal Highway, Suite 224</p>
+        <p>Boca Raton, FL 33431</p>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <a class="link-u" href="tel:+15615670239">Call (561) 567-0239</a>
+        <a class="link-u" href="sms:+15615670239">Text (561) 567-0239</a>
+        <a class="link-u" href="#contact">Free consultation</a>
+      </div>
+    </div>
+    <div class="footer-word" aria-hidden="true">Pure Brokers</div>
+    <div class="footer-bot">
+      <span>© <span id="yr">2026</span> Pure Brokers LLC. All rights reserved.</span>
+      <span>Boca Raton, Florida</span>
     </div>
   </div>
-  <div class="wrap" style="margin-top:20px;font-size:12px">© <span id="yr">2026</span> Pure Brokers LLC. All rights reserved.</div>
 </footer>
 
-<div class="call-bar" aria-label="Quick contact">
-  <a class="btn btn-primary" href="tel:+15615670239">Call now</a>
-  <a class="btn btn-steel" href="sms:+15615670239">Text us</a>
+<div class="callbar" id="callbar" aria-label="Quick contact">
+  <a class="c1" href="tel:+15615670239">Call now</a>
+  <a class="c2" href="sms:+15615670239">Text us</a>
 </div>
 
+<script src="vendor/lenis.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/SplitText.min.js"></script>
 <script>
+(function () {
+  "use strict";
   // Set to your form backend (e.g. a Formspree or Netlify Forms URL). Leave empty to show the phone fallback.
-  const FORM_ENDPOINT = "";
+  var FORM_ENDPOINT = "";
 
-  document.getElementById("yr").textContent = new Date().getFullYear();
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
-  const isPhone = window.matchMedia("(max-width: 900px)").matches;
-  const clamp01 = (n) => Math.min(1, Math.max(0, n));
+  var doc = document.documentElement;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var desktop = window.matchMedia("(min-width: 901px)");
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  $("#yr").textContent = new Date().getFullYear();
 
-  /* =========================================================
-     FILM: three shots drawn on a fixed canvas behind the page.
-     Page scroll drives the playhead; it eases toward the target
-     and blends neighbouring frames, so motion stays fluid.
-     ========================================================= */
-  const SHOTS = [
-    { key: "a", count: 61, focusX: 0.5,  focusY: 0.62 },  // sunrise road
-    { key: "b", count: 61, focusX: 0.42, focusY: 0.55 },  // causeway (landscape)
-    { key: "c", count: 61, focusX: 0.62, focusY: 0.5  },  // keys handed over
-  ];
-  const canvas = document.getElementById("film");
-  const ctx = canvas.getContext("2d", { alpha: false });
-  const progressBar = document.getElementById("filmProgress");
-  const STEP = isPhone ? 2 : 1;                 // phones load every other frame
-  const pad = (n) => String(n).padStart(3, "0");
+  var hasGsap = !!(window.gsap && window.ScrollTrigger);
 
-  // Frame table per shot: images that load progressively
-  SHOTS.forEach((s) => {
-    s.frames = [];
-    for (let i = 1; i <= s.count; i++) {
-      const wanted = (i - 1) % STEP === 0 || i === s.count;
-      s.frames.push({ src: `film/${s.key}_${pad(i)}.webp`, img: null, ready: false, wanted });
+  /* ---------- Hero video: play when ready, keep the still otherwise ---------- */
+  var heroVideo = $("#heroVideo");
+  if (heroVideo) {
+    if (reduce) { heroVideo.remove(); }
+    else {
+      heroVideo.style.opacity = "0";
+      heroVideo.style.transition = "opacity 1.2s ease";
+      heroVideo.addEventListener("playing", function () { heroVideo.style.opacity = "1"; }, { once: true });
+      var p = heroVideo.play(); if (p && p.catch) p.catch(function () {});
     }
-  });
-
-  // Load order: first frames of the opening shot, then coarse-to-fine across everything
-  const queue = [];
-  const seen = new Set();
-  const push = (si, fi) => { const id = si + ":" + fi; const f = SHOTS[si].frames[fi]; if (f && f.wanted && !seen.has(id)) { seen.add(id); queue.push([si, fi]); } };
-  for (let i = 0; i < 8; i++) push(0, i * STEP);
-  for (const stride of [16, 8, 4, 2, 1]) SHOTS.forEach((s, si) => { for (let fi = 0; fi < s.count; fi += stride) push(si, fi); push(si, s.count - 1); });
-
-  let inflight = 0, dirty = true;
-  function pump() {
-    while (inflight < 6 && queue.length) {
-      const [si, fi] = queue.shift();
-      const f = SHOTS[si].frames[fi];
-      const img = new Image();
-      img.decoding = "async";
-      inflight++;
-      img.onload = () => { f.img = img; f.ready = true; inflight--; dirty = true; kick(); pump(); };
-      img.onerror = () => { inflight--; pump(); };
-      img.src = f.src;
+  }
+  // Contact film loads only when it's about to be seen
+  var contactVideo = $("#contactVideo");
+  if (contactVideo) {
+    if (reduce) { contactVideo.remove(); }
+    else {
+      var cio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { contactVideo.preload = "auto"; var pp = contactVideo.play(); if (pp && pp.catch) pp.catch(function () {}); }
+          else contactVideo.pause();
+        });
+      }, { rootMargin: "200px 0px" });
+      cio.observe(contactVideo);
     }
   }
 
-  // Nearest loaded frames around a fractional position
-  function nearest(s, pos) {
-    let lo = Math.floor(pos), hi = Math.ceil(pos);
-    while (lo >= 0 && !s.frames[lo].ready) lo--;
-    while (hi < s.count && !s.frames[hi].ready) hi++;
-    if (lo < 0 && hi >= s.count) return null;
-    if (lo < 0) return [hi, hi, 0];
-    if (hi >= s.count) return [lo, lo, 0];
-    return [lo, hi, hi === lo ? 0 : (pos - lo) / (hi - lo)];
+  /* ---------- Header: solid after the hero, hides on scroll down ---------- */
+  var header = $("#header"), callbar = $("#callbar"), lastY = 0;
+  function onScrollUI(y) {
+    var heroH = window.innerHeight * 0.6;
+    header.classList.toggle("is-solid", y > 40);
+    header.classList.toggle("is-hidden", y > heroH && y > lastY + 2);
+    if (y < lastY - 2) header.classList.remove("is-hidden");
+    if (callbar) callbar.classList.toggle("is-on", y > window.innerHeight * 0.7);
+    lastY = y;
   }
+  onScrollUI(window.scrollY);
 
-  let cw = 0, ch = 0;
-  function resizeCanvas() {
-    const dpr = Math.min(window.devicePixelRatio || 1, isPhone ? 2 : 1.5);
-    cw = Math.round(window.innerWidth * dpr);
-    ch = Math.round(window.innerHeight * dpr);
-    canvas.width = cw; canvas.height = ch;
-    dirty = true;
-  }
-
-  function drawCover(img, s, alpha) {
-    if (alpha <= 0.001) return;
-    const iw = img.naturalWidth, ih = img.naturalHeight;
-    const scale = Math.max(cw / iw, ch / ih) * 1.04;       // slight overscan for the drift
-    const w = iw * scale, h = ih * scale;
-    const x = (cw - w) * s.focusX, y = (ch - h) * s.focusY;
-    ctx.globalAlpha = alpha;
-    ctx.drawImage(img, x, y, w, h);
-  }
-
-  function drawShot(si, local, alpha) {
-    const s = SHOTS[si];
-    const n = nearest(s, clamp01(local) * (s.count - 1));
-    if (!n) return false;
-    const [lo, hi, t] = n;
-    drawCover(s.frames[lo].img, s, alpha);
-    if (hi !== lo && t > 0) drawCover(s.frames[hi].img, s, alpha * t);
-    return true;
-  }
-
-  // Map page progress (0..1) to shots with soft crossfades between them
-  const FADE = 0.07;
-  function render(p) {
-    p = clamp01(p);
-    const seg = 1 / SHOTS.length;
-    const k = Math.min(SHOTS.length - 1, Math.floor(p / seg));
-    const local = (p - k * seg) / seg;
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = "#08090a";
-    ctx.fillRect(0, 0, cw, ch);
-    const drew = drawShot(k, local, 1);
-    // Blend into the next shot near the end of this one
-    const toNext = p - ((k + 1) * seg - FADE / 2);
-    if (k < SHOTS.length - 1 && toNext > 0) drawShot(k + 1, 0, clamp01(toNext / FADE));
-    // Finish blending out of the previous shot at the start of this one
-    const fromPrev = (k * seg + FADE / 2) - p;
-    if (k > 0 && fromPrev > 0) drawShot(k - 1, 1, clamp01(fromPrev / FADE));
-    ctx.globalAlpha = 1;
-    if (drew) canvas.style.backgroundImage = "none";
-  }
-
-  let target = 0, current = 0, last = performance.now(), running = false;
-  function readTarget() {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    target = max > 0 ? clamp01(window.scrollY / max) : 0;
-  }
-  function frame(now) {
-    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000)); last = now;
-    const k = 1 - Math.exp(-dt * 7.5);                // smooth, frame-rate independent easing
-    current += (target - current) * k;
-    const settled = Math.abs(target - current) < 0.00005;
-    if (settled) current = target;
-    progressBar.style.transform = `scaleX(${current.toFixed(4)})`;
-    render(current);
-    dirty = false;
-    if (!settled || dirty) requestAnimationFrame(frame); else running = false;
-  }
-  function kick() { if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); } }
-
-  resizeCanvas();
-  readTarget(); current = target;
-  pump();
-  if (reduceMotion) {
-    // Still image only: draw the first frame once it arrives
-    const first = SHOTS[0].frames[0];
-    const once = () => { if (first.ready) render(0); else setTimeout(once, 120); };
-    once();
-  } else {
-    window.addEventListener("scroll", () => { readTarget(); kick(); }, { passive: true });
-  }
-  window.addEventListener("resize", () => { resizeCanvas(); readTarget(); kick(); measure(); });
-
-  /* ===== Reveals, chips, count-up ===== */
-  function countUp(el) {
-    if (!el || reduceMotion) return;
-    const end = Number(el.dataset.count), dur = 1400, t0 = performance.now();
-    const step = (now) => {
-      const k = Math.min(1, (now - t0) / dur);
-      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))).toLocaleString("en-US");
-      if (k < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      el.classList.add("in");
-      if (el.classList.contains("chips")) el.querySelectorAll(".chip").forEach((c, i) => setTimeout(() => c.classList.add("in"), i * 70));
-      if (el.classList.contains("stat")) countUp(el.querySelector("[data-count]"));
-      io.unobserve(el);
-    });
-  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll(".reveal, .rise, .stat, .chips").forEach((el) => io.observe(el));
-
-  /* ===== Section effects tied to scroll ===== */
-  const ribbonTrack = document.getElementById("ribbonTrack");
-  const svcPin = document.getElementById("services");
-  const svcTrack = document.getElementById("svcTrack");
-  const pains = [...document.querySelectorAll(".pain")];
-  const timeline = document.getElementById("timeline");
-  const timelineLine = document.getElementById("timelineLine");
-  const aboutImg = document.getElementById("aboutImg");
-  const rect = (el) => el.getBoundingClientRect();
-
-  let svcShift = 0;
-  function measure() {
-    if (isDesktop() && !reduceMotion) {
-      svcShift = Math.max(0, svcTrack.scrollWidth - window.innerWidth);
-      svcPin.style.height = (window.innerHeight + svcShift) + "px";
-    } else {
-      svcPin.style.height = "";
-      svcTrack.style.transform = "";
-      svcShift = 0;
-    }
-    readTarget();
-    sectionsUpdate();
-  }
-
-  let ticking = false;
-  function sectionsUpdate() {
-    ticking = false;
-    if (reduceMotion) return;
-    const vh = window.innerHeight;
-    const rr = rect(ribbonTrack.parentElement);
-    ribbonTrack.style.transform = `translate3d(${(-clamp01((vh - rr.top) / (vh + rr.height)) * 35).toFixed(2)}%,0,0)`;
-    if (svcShift > 0) {
-      const sr = svcPin.offsetHeight - vh;
-      const sp = sr > 0 ? clamp01(-rect(svcPin).top / sr) : 0;
-      svcTrack.style.transform = `translate3d(${(-sp * svcShift).toFixed(1)}px,0,0)`;
-    }
-    pains.forEach((el) => el.classList.toggle("is-lit", rect(el).top < vh * 0.8));
-    const tr = rect(timeline);
-    timelineLine.style.transform = `scaleY(${clamp01((vh * 0.75 - tr.top) / tr.height).toFixed(3)})`;
-    const ar = rect(aboutImg.parentElement);
-    const k = (ar.top + ar.height / 2 - vh / 2) / vh;
-    aboutImg.style.transform = `translate3d(0,${(k * -50).toFixed(1)}px,0) scale(1.14)`;
-  }
-  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(sectionsUpdate); } }, { passive: true });
-  measure();
-  kick();
-
-  /* ===== Lead form ===== */
-  const form = document.getElementById("lead");
-  const status = form.querySelector(".form-status");
-  form.addEventListener("submit", async (ev) => {
+  /* ---------- Form ---------- */
+  var brand = $("#brand");
+  brand.addEventListener("change", function () { brand.classList.toggle("has-value", !!brand.value); });
+  var form = $("#lead"), status = $(".form-status", form);
+  form.addEventListener("submit", function (ev) {
     ev.preventDefault();
     status.className = "form-status";
-    const data = Object.fromEntries(new FormData(form).entries());
-    const missing = ["name", "contact", "brand", "details"].filter((k) => !String(data[k] || "").trim());
-    if (missing.length) { status.classList.add("err"); status.textContent = "Please fill out the required fields."; return; }
-    if (!FORM_ENDPOINT) {
-      status.classList.add("err");
-      status.textContent = "Online form isn't connected yet. Please call or text (561) 567-0239.";
-      return;
-    }
-    const btn = form.querySelector("button[type=submit]");
-    btn.disabled = true; btn.textContent = "Sending…";
-    try {
-      const res = await fetch(FORM_ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
-      if (!res.ok) throw new Error("bad response");
-      form.reset();
-      status.classList.add("ok");
-      status.textContent = "Thanks! The Pure Brokers team will reach out shortly.";
-    } catch (err) {
-      status.classList.add("err");
-      status.textContent = "Something went wrong. Please call or text (561) 567-0239.";
-    } finally {
-      btn.disabled = false; btn.textContent = "Submit request";
+    var data = new FormData(form);
+    var missing = ["name", "contact", "brand", "details"].filter(function (k) { return !String(data.get(k) || "").trim(); });
+    if (missing.length) { status.classList.add("err"); status.textContent = "Please fill out every field so we can help."; return; }
+    if (!FORM_ENDPOINT) { status.classList.add("err"); status.textContent = "Online requests aren't connected yet. Please call or text (561) 567-0239."; return; }
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    fetch(FORM_ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: data })
+      .then(function (r) { if (!r.ok) throw new Error(); form.reset(); brand.classList.remove("has-value"); status.classList.add("ok"); status.textContent = "Thank you. The Pure Brokers team will reach out shortly."; })
+      .catch(function () { status.classList.add("err"); status.textContent = "Something went wrong. Please call or text (561) 567-0239."; })
+      .finally(function () { btn.disabled = false; });
+  });
+
+  /* ---------- Count-up ---------- */
+  function countUp(el) {
+    var end = Number(el.dataset.count), t0 = performance.now(), dur = 1600;
+    (function step(now) {
+      var k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 4);
+      el.textContent = Math.round(end * e).toLocaleString("en-US");
+      if (k < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+
+  // Without GSAP or with reduced motion: static, fully readable page
+  if (!hasGsap || reduce) {
+    doc.classList.add("no-loader");
+    window.addEventListener("scroll", function () { onScrollUI(window.scrollY); }, { passive: true });
+    storyFallback();
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger, window.SplitText ? SplitText : {});
+
+  /* ---------- Smooth scroll (Lenis) driven by GSAP's ticker ---------- */
+  var lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true });
+  lenis.on("scroll", function (e) { ScrollTrigger.update(); onScrollUI(e.scroll); });
+  gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (ev) {
+      var id = a.getAttribute("href");
+      var target = id === "#top" ? 0 : $(id);
+      if (target === null) return;
+      ev.preventDefault();
+      lenis.scrollTo(target, { offset: id === "#top" ? 0 : -20, duration: 1.6 });
+    });
+  });
+
+  /* ---------- Intro ---------- */
+  var heroTitle = $("#heroTitle");
+  var split = window.SplitText ? new SplitText(heroTitle.querySelectorAll(".line"), { type: "words", wordsClass: "hw" }) : null;
+  var heroWords = split ? split.words : heroTitle.querySelectorAll(".line");
+  gsap.set(heroWords, { yPercent: 110 });
+  gsap.set(["#heroContent .label", "#heroContent .hero-sub", "#heroContent .hero-facts"], { autoAlpha: 0, y: 24 });
+  gsap.set("#heroMedia", { scale: 1.12 });
+
+  function playHero() {
+    var tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+    tl.to("#heroMedia", { scale: 1, duration: 2.4, ease: "power3.out" }, 0)
+      .to(heroWords, { yPercent: 0, duration: 1.4, stagger: 0.07 }, 0.25)
+      .to("#heroContent .label", { autoAlpha: 1, y: 0, duration: 1 }, 0.2)
+      .to(["#heroContent .hero-sub", "#heroContent .hero-facts"], { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.12 }, 0.75);
+  }
+
+  var loader = $("#loader");
+  if (doc.classList.contains("no-loader") || !loader) {
+    playHero();
+  } else {
+    lenis.stop();
+    var counter = { v: 0 };
+    var heroImg = $("#heroMedia img");
+    var ready = new Promise(function (res) { if (heroImg.complete) res(); else { heroImg.addEventListener("load", res); heroImg.addEventListener("error", res); } setTimeout(res, 2600); });
+    var lt = gsap.timeline();
+    lt.from(".loader-mark span", { yPercent: 110, duration: 1, stagger: 0.12, ease: "expo.out" })
+      .to(counter, { v: 100, duration: 1.4, ease: "power2.inOut", onUpdate: function () {
+          $("#loaderCount").textContent = String(Math.round(counter.v)).padStart(3, "0");
+          $("#loaderBar").style.transform = "scaleX(" + counter.v / 100 + ")";
+        } }, 0.1);
+    Promise.all([ready, new Promise(function (r) { lt.eventCallback("onComplete", r); })]).then(function () {
+      try { sessionStorage.setItem("pb-intro", "1"); } catch (e) {}
+      gsap.timeline()
+        .to(".loader-inner", { autoAlpha: 0, y: -20, duration: .5, ease: "power2.in" })
+        .to(loader, { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "expo.inOut" }, "-=.1")
+        .add(function () { playHero(); }, "-=.7")
+        .add(function () { loader.remove(); lenis.start(); });
+    });
+  }
+
+  /* ---------- Hero: film shrinks into a framed window as you scroll ---------- */
+  var mm = gsap.matchMedia();
+  mm.add("(min-width: 901px)", function () {
+    gsap.timeline({ scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } })
+      .to("#heroMedia", { clipPath: "inset(6% 4% 6% 4% round 28px)", ease: "none" }, 0)
+      .to("#heroContent", { yPercent: -18, autoAlpha: 0, ease: "none" }, 0);
+  });
+  mm.add("(max-width: 900px)", function () {
+    gsap.timeline({ scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } })
+      .to("#heroMedia", { clipPath: "inset(4% 3% 4% 3% round 22px)", ease: "none" }, 0)
+      .to("#heroContent", { yPercent: -10, autoAlpha: 0.2, ease: "none" }, 0);
+  });
+
+  /* ---------- Manifesto: words light up as you read ---------- */
+  var mf = $("#manifesto");
+  var mfSplit = window.SplitText ? new SplitText(mf, { type: "words", wordsClass: "w" }) : null;
+  if (mfSplit) {
+    gsap.fromTo(mfSplit.words, { opacity: 0.14 }, {
+      opacity: 1, stagger: 0.12, ease: "none",
+      scrollTrigger: { trigger: mf, start: "top 78%", end: "bottom 42%", scrub: true }
+    });
+  }
+  gsap.from(".manifesto-foot p", { y: 30, autoAlpha: 0, duration: 1.1, stagger: .12, ease: "expo.out", scrollTrigger: { trigger: ".manifesto-foot", start: "top 85%" } });
+
+  /* ---------- Section titles and copy rise in ---------- */
+  $$(".h-lg, .lead, .label, .stat, .principles li, .contact-list, .lead-form, .areas-addr").forEach(function (el) {
+    if (el.closest("#hero")) return;
+    gsap.from(el, { y: 40, autoAlpha: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+  });
+
+  /* ---------- Stats count up ---------- */
+  $$("[data-count]").forEach(function (el) {
+    ScrollTrigger.create({ trigger: el, start: "top 85%", once: true, onEnter: function () { countUp(el); } });
+  });
+
+  /* ---------- How it works: pinned image follows the active step ---------- */
+  var figs = $$("#storyMedia figure"), counterEl = $("#storyCounter");
+  function setStep(i) {
+    figs.forEach(function (f, j) { f.classList.toggle("is-on", j === i); f.classList.toggle("is-past", j < i); });
+    if (counterEl) counterEl.textContent = "0" + (i + 1) + " / 03";
+  }
+  $$(".step").forEach(function (s, i) {
+    ScrollTrigger.create({ trigger: s, start: "top 55%", end: "bottom 55%", onToggle: function (self) { if (self.isActive) setStep(i); } });
+    gsap.from(s.querySelectorAll(".num, h3, p"), { y: 50, autoAlpha: 0, duration: 1.2, stagger: .1, ease: "expo.out", scrollTrigger: { trigger: s, start: "top 75%" } });
+  });
+
+  /* ---------- Services: rows draw in ---------- */
+  $$(".svc-row").forEach(function (row) {
+    gsap.from(row, { y: 50, autoAlpha: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: row, start: "top 90%" } });
+  });
+  /* ---------- Problems: each line is struck through as you pass it ---------- */
+  $$(".pain").forEach(function (li) {
+    var t = $(".t", li);
+    gsap.fromTo(t, { "--s": 0 }, {
+      "--s": 1, ease: "none",
+      scrollTrigger: { trigger: li, start: "top 72%", end: "top 48%", scrub: true,
+        onUpdate: function (self) { li.classList.toggle("is-done", self.progress > 0.98); } }
+    });
+  });
+  gsap.from(".problems-close .h-md", { y: 40, autoAlpha: 0, duration: 1.3, ease: "expo.out", scrollTrigger: { trigger: ".problems-close", start: "top 85%" } });
+
+  /* ---------- About: photo drifts with scroll ---------- */
+  gsap.fromTo("#aboutPhoto img", { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: "#aboutPhoto", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.from("#aboutPhoto", { clipPath: "inset(18% 12% 18% 12% round 22px)", duration: 1.6, ease: "expo.out", scrollTrigger: { trigger: "#aboutPhoto", start: "top 80%" } });
+
+  /* ---------- Marquees speed up with scroll velocity ---------- */
+  var tracks = $$(".marquee-track");
+  ScrollTrigger.create({
+    trigger: ".areas", start: "top bottom", end: "bottom top",
+    onUpdate: function (self) {
+      var v = Math.min(4, 1 + Math.abs(self.getVelocity()) / 900);
+      tracks.forEach(function (tr) { tr.getAnimations().forEach(function (a) { a.playbackRate = v; }); });
     }
   });
+
+  /* ---------- Footer wordmark rises ---------- */
+  gsap.from(".footer-word", { yPercent: 40, autoAlpha: 0, duration: 1.6, ease: "expo.out", scrollTrigger: { trigger: ".footer-word", start: "top 95%" } });
+
+  /* ---------- Magnetic buttons (desktop, fine pointer) ---------- */
+  if (finePointer) {
+    $$(".magnetic").forEach(function (el) {
+      var mx = gsap.quickTo(el, "x", { duration: .6, ease: "elastic.out(1, .4)" });
+      var my = gsap.quickTo(el, "y", { duration: .6, ease: "elastic.out(1, .4)" });
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        mx((e.clientX - (r.left + r.width / 2)) * 0.22);
+        my((e.clientY - (r.top + r.height / 2)) * 0.32);
+      });
+      el.addEventListener("pointerleave", function () { mx(0); my(0); });
+    });
+  }
+
+  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+
+  function storyFallback() {
+    var figs2 = $$("#storyMedia figure");
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var i = Number(e.target.dataset.step);
+        figs2.forEach(function (f, j) { f.classList.toggle("is-on", j === i); });
+        var c = $("#storyCounter"); if (c) c.textContent = "0" + (i + 1) + " / 03";
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    $$(".step").forEach(function (s) { io.observe(s); });
+    $$("[data-count]").forEach(function (el) { el.textContent = Number(el.dataset.count).toLocaleString("en-US"); });
+  }
+})();
 </script>
 </body>
 </html>
